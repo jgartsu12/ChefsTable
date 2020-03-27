@@ -7,14 +7,14 @@ import ReactDOM from 'react-dom';
 // const createStoreWithMiddleware = applyMiddleware()(compose((window.devToolsExtension ? window.devToolsExtension() : f => f)(createStore)));
 
 import './styles/main/main.scss';
-
+import App from './components/App/App';
 // // import history from './history';
 
 
 
 function main() {
   ReactDOM.render (
-
+    <App/>
     , document.querySelector('.app-wrapper'));
 }
 
