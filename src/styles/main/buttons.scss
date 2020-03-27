@@ -1,0 +1,17 @@
+.navbar-links-btn {
+    display: flex;
+    flex-direction: column;
+    width: 198px;
+    height: 47px;
+    align-items: center;
+    justify-content: space-between;
+
+    .navbar-links-btn-txt {
+        font-family: 'Comic Sans MS';
+        color: $black-text;
+        font-size: 21px;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+    }
+}

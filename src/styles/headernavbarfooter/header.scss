@@ -1,0 +1,10 @@
+.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    
+    .header-banner-image {
+        height: 100%;
+        object-fit: stretch;
+    }
+}
