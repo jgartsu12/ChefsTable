@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
-import Header from '../headernavbarfooter/header';
-import Navbar from '../headernavbarfooter/navbar';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import MainLayout from './MainLayout';
 
 
 export default class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header/>
-        <Navbar/>
+      <div className="container">
+        <Router>
+          <MainLayout />
+
+        </Router>
       </div>
     );
   }
