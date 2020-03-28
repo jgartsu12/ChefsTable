@@ -1,6 +1,15 @@
 .navbar-wrapper {
-    display: row;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
     height: 76px;
     width: 100%;
     background-color: rgba(0,0,0,1);
+
+    .navbar-link-wrapper {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+    }
 }
