@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class extends Component {
+export default class PageTitle extends Component {
     render() {
         const { className, title } = this.props;
         return (

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import MainLayout from './MainLayout';
+import Home from '../pages/home';
 
 export default class App extends Component {
   // constructor(props) {
@@ -14,7 +15,11 @@ export default class App extends Component {
     return (
       <div className="container">
         <Router>
-          <MainLayout />
+          <MainLayout>
+            <Switch>
+              <Route exact path='/' component={Home} />
+            </Switch>
+          </MainLayout>
 
         </Router>
       </div>
