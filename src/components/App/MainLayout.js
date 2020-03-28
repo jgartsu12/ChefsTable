@@ -4,7 +4,6 @@ import Header from '../headernavbarfooter/header' ;
 import Navbar from '../headernavbarfooter/navbar';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 
-
 export default class MainLayout extends Component {
     render() {
         return (

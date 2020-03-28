@@ -20,6 +20,11 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader'
+      },
 
       {
         type: 'javascript/auto',

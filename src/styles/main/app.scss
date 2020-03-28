@@ -1,38 +1,16 @@
-body,
-html,
-#root {
-  height: 100%;
-}
-
 html {
-  font-size: 18px;
-}
-
-h1 {
-  padding: .77rem 0;
-  background-color: #010c3f;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.88rem;
-  color: #fff;
-}
-
-h1 .highlight {
-  color: #6c41ec;
-}
-
-h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.55rem;
-}
-
-.App {
   height: 100%;
-  padding: 0 17% 10% 17%;
+}
+
+body {
+  margin: 0 auto;
+  overflow: auto;
+  background-color: rgb(250,250,250);
+  min-width: 999px;
+  min-height: 100%;
+  background-image: url('https://images.pexels.com/photos/326311/pexels-photo-326311.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-repeat: repeat;
   background-size: cover;
+  background-attachment: fixed;
   background-position: center;
-  background-repeat: no-repeat;
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 500;
-  color: #fff;
 }

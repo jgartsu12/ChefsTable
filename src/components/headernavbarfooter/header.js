@@ -6,12 +6,9 @@ export default class Header extends Component {
     render() {
         return (
             <div className='header-wrapper'>
-                <div 
-                    className='header-banner-image'
-                    style={{
-                        backgroundImage: `url(${HeaderBannerImage})`
-                    }}
-                />
+                <div className='header-banner-image'>
+                    <img src={HeaderBannerImage} />
+                </div>
             </div>
         );
     }
