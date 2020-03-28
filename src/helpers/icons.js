@@ -1,12 +1,16 @@
 import {
-    faTwitter,
+    faTwitterSquare,
     faFacebookSquare,
     faInstagramSquare
-} from '@fortawesome/fontawesome-free';
-import { library } from '@fortawesome/fontawesome-free'
+} from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
 
-const Icons {
-
-}
+const Icons = () => {
+    return library.add (
+        faTwitterSquare,
+        faFacebookSquare,
+        faInstagramSquare
+    );
+};
 
 export default Icons;
