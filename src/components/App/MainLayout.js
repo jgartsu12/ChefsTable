@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Header from '../headernavbarfooter';
+import Header from '../headernavbarfooter/header' ;
 import Navbar from '../headernavbarfooter/navbar';
 
 export default class MainLayout extends Component {
