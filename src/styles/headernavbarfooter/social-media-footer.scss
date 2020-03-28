@@ -7,8 +7,17 @@
     width: 100%;
     background-color: rgba(0,0,0,1);
     // icons
-    // black background
-    // fixed height
-    // width reponsive 100%
+    .social-media-icon {
+        .icon {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            color: rgba(242,239,239,1);
+            font-size: 54;
+            height: 54;
+            width: 50;
+        }
+    }
     // centered at bottom 
 }

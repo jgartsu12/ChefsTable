@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Icons from '../../helpers/icons';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faTwitterSquare, faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
 
+library.add(fab, faTwitterSquare, faFacebookSquare, faInstagramSquare);
 
 class SocialMediaFooter extends Component {
     
