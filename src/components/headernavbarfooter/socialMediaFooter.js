@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import FontAwesomeIcon from '@fortawesome/fontawesome-free';
+
 class SocialMediaFooter extends Component {
     render() {
         return (
