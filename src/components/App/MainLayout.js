@@ -10,6 +10,9 @@ export default class MainLayout extends Component {
             <div className='main-layout-wrapper'>
                 <Header/>
                 <Navbar/>
+                <div className='homepage-wrapper'>
+                    
+                </div>
                 <SocialMediaFooter/>
             </div>
         );
