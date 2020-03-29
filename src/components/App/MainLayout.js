@@ -6,6 +6,9 @@ import PageTitle from '../pageTitle';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 
 import StoreFrontImage from '../../../static/assets/images/restaurant-bldg-image.jpg';
+import RichAndBreadImage from '../../../static/assets/images/rich-bread.jpg';
+
+import HomePageRectangle from '../../helpers/canvas/shapes/rectangles/homepagerect';
 
 export default class MainLayout extends Component {
     render() {
@@ -21,7 +24,7 @@ export default class MainLayout extends Component {
                                 <img src={StoreFrontImage}/>
                             </div>
                             <div className='right-column'>
-                
+                                <HomePageRectangle/>
                             </div>
                         </div>
                     </div>
@@ -29,9 +32,20 @@ export default class MainLayout extends Component {
                     <div className='about-us-page-wrapper'>
                         <PageTitle className='about-us-page' title='About Us'/>
                         <div className='about-us-page-content'>
-                            {/* add rich bread img */}
+                            <div className='left-column'>
+                                <img src={RichAndBreadImage}/>
+                            </div>
+                            <div className='right-column'>
+                                
+                            </div>
                         </div>
                     </div>
+                            {/* Contact page */}
+                            {/* Soup page */}
+                            {/* Breakfast page */}
+                            {/* Lunch page */}
+                            {/* Order Online link to Ecom Site */}
+
                 <SocialMediaFooter/>
             </div>
         );
