@@ -36,14 +36,38 @@ export default class MainLayout extends Component {
                                 <img src={RichAndBreadImage}/>
                             </div>
                             <div className='right-column'>
-                                
+                                {/* add textarea */}
                             </div>
                         </div>
                     </div>
                             {/* Contact page */}
+                    <div className='contact-page-wrapper'>
+                        <PageTitle className='contact-page' title='Contact Us'/>
+                        <div className='contact-page-content'>
+                            {/* content */}
+                        </div>
+                    </div>
                             {/* Soup page */}
+                    <div className='soup-page-wrapper'>
+                        <PageTitle className='soup-page' title='Daily Soups'/>
+                        <div className='soup-page-content'>
+                            {/* content */}
+                        </div>
+                    </div>
                             {/* Breakfast page */}
+                    <div className='breakfast-page-wrapper'>
+                        <PageTitle className='breakfast-page' title='Breakfast Menu'/>
+                        <div className='breakfast-page-content'>
+                            {/* content */}
+                        </div>
+                    </div>
                             {/* Lunch page */}
+                    <div className='lunch-page-wrapper'>
+                        <PageTitle className='lunch-page' title='Lunch Menu'/>
+                        <div className='contact-page-content'>
+                            {/* content */}
+                        </div>
+                    </div>
                             {/* Order Online link to Ecom Site */}
 
                 <SocialMediaFooter/>
