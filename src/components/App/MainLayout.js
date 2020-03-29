@@ -9,6 +9,8 @@ import StoreFrontImage from '../../../static/assets/images/restaurant-bldg-image
 import RichAndBreadImage from '../../../static/assets/images/rich-bread.jpg';
 
 import HomePageRectangle from '../../helpers/canvas/shapes/rectangles/homepagerect';
+import ParagraphContainer from '../../helpers/textareaContainers/paragraphsContainer'
+
 
 export default class MainLayout extends Component {
     render() {
@@ -36,7 +38,7 @@ export default class MainLayout extends Component {
                                 <img src={RichAndBreadImage}/>
                             </div>
                             <div className='right-column'>
-                                {/* add textarea */}
+                                <ParagraphContainer/>
                             </div>
                         </div>
                     </div>
@@ -44,21 +46,33 @@ export default class MainLayout extends Component {
                     <div className='contact-page-wrapper'>
                         <PageTitle className='contact-page' title='Contact Us'/>
                         <div className='contact-page-content'>
-                            {/* content */}
+                            <div className='centered-column'>
+                                <ParagraphContainer/>
+                            </div>
                         </div>
                     </div>
                             {/* Soup page */}
                     <div className='soup-page-wrapper'>
                         <PageTitle className='soup-page' title='Daily Soups'/>
                         <div className='soup-page-content'>
-                            {/* content */}
+                            <div className='centered-column'>
+                                <div className='soup-menu'>
+                                    <div className='soup-menu-item'>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                             {/* Breakfast page */}
                     <div className='breakfast-page-wrapper'>
                         <PageTitle className='breakfast-page' title='Breakfast Menu'/>
                         <div className='breakfast-page-content'>
-                            {/* content */}
+                            <div className='centered-column'>
+                                <div className='breakfast-menu'>
+                                    <div className=''></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                             {/* Lunch page */}

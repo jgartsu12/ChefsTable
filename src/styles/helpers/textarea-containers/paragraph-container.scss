@@ -1,0 +1,33 @@
+.paragraph-container {
+    top: 242px;
+    left: 217px;
+    width: 999px;
+    height: 222px;
+    background-color: rgba(230, 230, 230, 1);
+    opacity: 0.69;
+    border-radius: 35;
+    border-color: #000;
+    border-width: 4;
+
+    .paragraph-header {
+        width: 700px;
+        height: 300px;
+        color: rgba(0,0,0,1);
+        position: absolute;
+        justify-content: space-between;
+        font-size: 20;
+        font-family: 'alfa-slab-one-regular';
+        text-align: center;
+    }
+
+    .paragraph-text {
+        top: 310px;
+        left: 292px;
+        width: 768px;
+        height: 124px;
+        color: rgba(0, 0, 0, 1);
+        position: absolute;
+        font-size: 14;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';;
+    }
+}
