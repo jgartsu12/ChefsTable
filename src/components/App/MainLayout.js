@@ -15,7 +15,7 @@ import ParagraphContainer from '../../helpers/textareaContainers/paragraphsConta
 export default class MainLayout extends Component {
     render() {
         return (
-            <div className='main-layout-wrapper'>
+            <div>
                 <Header/>
                 <Navbar/>
                             {/* home page */}
@@ -31,29 +31,22 @@ export default class MainLayout extends Component {
                         </div>
                     </div>
                             {/* About Us page */}
-                    <div className='about-us-page-wrapper'>
-                        <PageTitle className='about-us-page' title='About Us'/>
-                        <div className='about-us-page-content'>
-                            <div className='left-column'>
-                                <img src={RichAndBreadImage}/>
-                            </div>
-                            <div className='right-column'>
-                                <ParagraphContainer/>
-                            </div>
+                    <div className='about-us-page-content-wrapper'>
+                        <div className='left-column'>
+                            <img src={RichAndBreadImage}/>
+                        </div>
+                        <div className='right-column'>
+                            <ParagraphContainer header='Welcome to The Chefs Table, an ever evolving melting pot of food, music, and art.' 
+                                                text = 'The Chefs Table began as a small gourmet take out operation in 1995. Started by Culinary Institute of America grad Richard Herzfeld, It has grown, evolved, and merged into what has become one of Fairfield Counties premier eatery and rock and roll outlets. Boasting 10 hot soups a day, a tossed salad bar, a gourmet salad bar, a panini bar, and a coffee bar, as well as live music during lunch and dinner 7 days a week, and walls adorned with rock and roll art and vinyl records.
+                                                        The Chefs Table will certainly enlighten your senses and help you forget your worries. We cordially invite you to join us, 7 days a week, into a place that is as laid back as it appears. You never know who just might show up...'
+                            />
                         </div>
                     </div>
-                            {/* Contact page */}
-                    <div className='contact-page-wrapper'>
-                        <PageTitle className='contact-page' title='Contact Us'/>
-                        <div className='contact-page-content'>
-                            <div className='centered-column'>
-                                <ParagraphContainer/>
-                            </div>
-                        </div>
-                    </div>
+
+                    {/* Display interactive menus through pages */}
                             {/* Soup page */}
                     <div className='soup-page-wrapper'>
-                        <PageTitle className='soup-page' title='Daily Soups'/>
+                        {/* <PageTitle className='soup-page' title='Daily Soups'/> */}
                         <div className='soup-page-content'>
                             <div className='centered-column'>
                                 <div className='soup-menu'>
@@ -66,7 +59,7 @@ export default class MainLayout extends Component {
                     </div>
                             {/* Breakfast page */}
                     <div className='breakfast-page-wrapper'>
-                        <PageTitle className='breakfast-page' title='Breakfast Menu'/>
+                        {/* <PageTitle className='breakfast-page' title='Breakfast Menu'/> */}
                         <div className='breakfast-page-content'>
                             <div className='centered-column'>
                                 <div className='breakfast-menu'>
@@ -77,12 +70,13 @@ export default class MainLayout extends Component {
                     </div>
                             {/* Lunch page */}
                     <div className='lunch-page-wrapper'>
-                        <PageTitle className='lunch-page' title='Lunch Menu'/>
+                        {/* <PageTitle className='lunch-page' title='Lunch Menu'/> */}
                         <div className='contact-page-content'>
                             {/* content */}
                         </div>
                     </div>
-                            {/* Order Online link to Ecom Site */}
+
+            {/* Order Online link to Ecom Site future feature */}
 
                 <SocialMediaFooter/>
             </div>

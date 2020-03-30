@@ -54,17 +54,7 @@ class Navbar extends Component {
                             </div>
                         </button>
                     </NavLink>
-                </div>
-
-                <div className='nav-link-wrapper'>
-                    <NavLink exact to='/' activeClassName='nav-link-active'>
-                        <button className='navbar-links-btn'>
-                            <div className='navbar-links-btn-txt'>
-                                ORDER
-                            </div>
-                        </button>
-                    </NavLink>
-                </div>
+                </div>                
             </div>
         );
     }

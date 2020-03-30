@@ -1,33 +1,35 @@
 .paragraph-container {
-    top: 242px;
-    left: 217px;
-    width: 999px;
-    height: 222px;
-    background-color: rgba(230, 230, 230, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 800px;
+    margin: 25px;
+    background-color: #e6e6e6;
     opacity: 0.69;
-    border-radius: 35;
+    border-radius: 71px;
     border-color: #000;
-    border-width: 4;
+    border-width: 45px;
+    border: solid;
 
     .paragraph-header {
-        width: 700px;
         height: 300px;
         color: rgba(0,0,0,1);
-        position: absolute;
         justify-content: space-between;
-        font-size: 20;
+        font-size: 30px;
+        font-weight: 900;
         font-family: 'alfa-slab-one-regular';
         text-align: center;
+        padding: 20px;
     }
 
     .paragraph-text {
-        top: 310px;
-        left: 292px;
         width: 768px;
         height: 124px;
-        color: rgba(0, 0, 0, 1);
         position: absolute;
-        font-size: 14;
+        color: rgba(0, 0, 0, 1);
+        font-size: 16px;
+        text-align: center;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';;
     }
 }

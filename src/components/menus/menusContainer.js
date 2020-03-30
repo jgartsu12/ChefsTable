@@ -9,16 +9,27 @@ export default class MenusContainer extends Component {
         super();
 
         this.state = {
-            showMenu: true,
+            showMenuItemFront: true,
             data: []
         };
 
-        this.handleChange = this.handleChange.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
+        this.handleMouseEnter = this.handleMouseEnter.bind(this);
+        this.handleMouseLeave = this.handleMouseLeave.bind(this);
     }
 
-    handleChange() {
-        // handles when card clicked
-    };
+    handleMouseEnter() {
+        this.setState({ showMenuItemFront: false });
+    }
+
+    handleMouseLeave() {
+        this.setState({ showMenuItemFront: true });
+    }
+
+
+    // handleChange() {
+    //     // handles when card clicked
+    // };
 
     render() {
         return (

@@ -5,18 +5,12 @@ export default class MenuItem extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            menuItemClass: ""
-        };
+        // this.state = {
+        //     showMenuItem: 
+        // };
     }
 
-    handleMouseEnter() {
-        this.setState({ menuItemClass: "plate-flip" });
-    }
-
-    handleMouseLeave() {
-        this.setState({ menuItemClass: "" });
-    }
+    
 
     render() {
         const { id, description, price } = this.props.item;
