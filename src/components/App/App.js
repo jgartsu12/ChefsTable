@@ -6,7 +6,6 @@ import MainLayout from './MainLayout';
 import Home from '../pages/home';
 import AboutUs from '../pages/about-us';
 
-
 export default class App extends Component {
   // constructor(props) {
   //   super(props);
