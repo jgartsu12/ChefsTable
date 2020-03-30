@@ -1,3 +1,32 @@
-.homepage-wrapper {
-    
+.home-page-content-wrapper {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: calc(100vh - 84px);
+
+    .left-column {
+        display: flex;
+        justify-content: center;
+        align-items: left;
+        flex-direction: column;
+        padding: 20px;
+
+        img {
+            margin: 15px 25px;
+            border-radius: 5px;
+            object-fit: contain;
+            position: relative;
+            right: 21px;
+        }
+    }
+
+    .right-column {
+        display: flex;
+        position: relative;
+        left: -50px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 0px;
+    }
 }
