@@ -7,8 +7,8 @@ import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 import StoreFrontImage from '../../../static/assets/images/restaurant-bldg-image.jpg';
 import RichAndBreadImage from '../../../static/assets/images/rich-bread.jpg';
 
-import HomeParagraphContainer from '../../helpers/textareaContainers/homeParagraphContainer'
-import AboutParagraphContainer from '../../helpers/textareaContainers/aboutParagraphContainer'
+import HomeParagraphContainer from '../../helpers/textareaContainers/homeParagraphContainer';
+import AboutParagraphContainer from '../../helpers/textareaContainers/aboutParagraphContainer';
 
 
 export default class MainLayout extends Component {

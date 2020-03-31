@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 import MenuTitle from './menuTitle';
-import MenuItem from './menuItem';
+// import MenuItem from './menuItem';
 
 export default class MenusContainer extends Component {
     constructor() {
@@ -26,6 +27,7 @@ export default class MenusContainer extends Component {
         this.setState({ showMenuItemFront: true });
     }
 
+    // getMenuItemImage()
 
     // handleChange() {
     //     // handles when card clicked
@@ -33,12 +35,14 @@ export default class MenusContainer extends Component {
 
     render() {
         return (
-            <div className='menus-wrapper'>
-                <div className='menus-header'>
+            <div className='menu-content-wrapper'>
+                <div className='menu-header'>
                     <MenuTitle className='breakfast-menu' title='Breakast'/>
                 </div>
-                <div className='menus-content'>
-                    <MenuItem />
+                <div className='menu-item'>
+                    <div className='menu-item__front'>
+
+                    </div>
                 </div>
             </div>
         );
