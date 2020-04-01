@@ -17,7 +17,7 @@ class Navbar extends Component {
                 </div>
             
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/' activeClassName='nav-link-active'>
+                    <NavLink exact to='/about-us' activeClassName='nav-link-active'>
                         <button className='navbar-links-btn'>
                             <div className='navbar-links-btn-txt'>
                                 ABOUT US
@@ -27,7 +27,7 @@ class Navbar extends Component {
                 </div>
 
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/' activeClassName='nav-link-active'>
+                    <NavLink exact to='/soups' activeClassName='nav-link-active'>
                         <button className='navbar-links-btn'>
                             <div className='navbar-links-btn-txt'>
                                 SOUPS
@@ -37,7 +37,7 @@ class Navbar extends Component {
                 </div>
 
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/' activeClassName='nav-link-active'>
+                    <NavLink exact to='/breakfast' activeClassName='nav-link-active'>
                         <button className='navbar-links-btn'>
                             <div className='navbar-links-btn-txt'>
                                 BREAKFAST

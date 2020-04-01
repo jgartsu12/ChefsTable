@@ -1,38 +1,41 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 import MenuTitle from './menuTitle';
 
-export default class MenuDetail extends Component {
-    constructor(props) {
-        super(props);
+class MenuDetail extends Component {
+    state = {
+        menuItem: {}
+    };
 
-        this.state = {
-            menuItem: {}
-        };
-    }
-
-    componentWillMount() {
-        this.getMenuItem();
-    }
-
-    getMenuItem() {
+    componentDidMount() {
+        const foodID = this.props.match.params.foodID;
         axios
-            .get(
-                `http://127.0.0.1:8000/api/<pk>/${
-                    this.props.match.params.slug
-            }`,
-            // { withCredentials: true }
-            )
-            .then(response => {
+            .get(`http://127.0.0.1:8000/api/${foodID}`)
+            .then(res => {
                 this.setState({
-                    menuItem: response.data.menu_items
+                    menuItem: res.data
                 });
-            })
-            .catch(error => {
-                console.log('getMenuItem error', error);
             });
         }
+    
+    handleDelete = event => {
+        event.preventDefault();
+        const foodID = this.props.match.params.foodID;
+        axios.defaults.headers = {
+            "Content-Type": "application/json",
+            Authorization: `Token ${this.props.token}`
+        };
+        axios
+            .delete(`http://127.0.0.1:8000/api/${foodID}/delete/`)
+            .then(res => {
+                if (res.status === 204) {
+                    this.props.history.push(`/`);
+            }
+        })
+    }
+
     render() {
         const {
             titles,
@@ -52,6 +55,14 @@ export default class MenuDetail extends Component {
                     
                 </div>
             </div>
-        )
+        );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        token: state.token
+    };
+}
+
+export default connect(mapStateToProps)(MenuDetail);

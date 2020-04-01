@@ -7,15 +7,14 @@ import Home from '../pages/home';
 import AboutUs from '../pages/about-us';
 
 export default class App extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   Icons();
-  // }
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div className="container">
         <Router>
+          
           <MainLayout>
             <Switch>
               <Route exact path='/' component={Home} />
