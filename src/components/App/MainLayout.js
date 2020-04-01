@@ -4,6 +4,7 @@ import Header from '../headernavbarfooter/header' ;
 import Navbar from '../headernavbarfooter/navbar';
 import Home from '../pages/home';
 import AboutUs from '../pages/about-us';
+import BreakfastMenu from '../pages/breakfast-menu';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 
 
@@ -32,13 +33,13 @@ export default class MainLayout extends Component {
                     <SoupMenu/>
                     <SocialMediaFooter/>
                 </div> */}
-                    {/* Breakfast Menu */}
-                {/* <div>
+                    {/* Breakfast Menu  */}
+                <div>
                     <Header/>
                     <Navbar/>
                     <BreakfastMenu/>
                     <SocialMediaFooter/>
-                </div> */}
+                </div>
                     {/* Lunch Menu */}
                 {/* <div>
                     <Header/>

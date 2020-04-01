@@ -19,18 +19,18 @@ export default class MenuItems extends Component {
     }
 
     render() {
-        const { id, food_thumb_img, description, price } = this.props.menuItem;
+        const { foodID, food_thumb_img, description, price } = this.props.item;
         return (
-            <Link to={`/menus/${id}`}>
+            <Link to={`/api/${foodID}`}>
                 <div className='menu-item-wrapper'>
                     <div 
-                        className='menu_item__front-view'
+                        className={'menu_item__front-view' + this.state.showMenuItemBack}
                         onMouseEnter={() => this.handleMouseEnter()}
                        >
                         <img className='menu-item__image' src={food_thumb_img}/>
                     </div>
                     <div 
-                        className='menu_item__back-view'
+                        className={'menu_item__back-view' + this.state.showMenuItemBack}
                         onMouseLeave={() => this.handleMouseLeave()}
                       >
                         <div className='menu-item__description'>{description}</div>

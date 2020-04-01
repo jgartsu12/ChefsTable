@@ -1,49 +1,44 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-
-import MenuTitle from './menuTitle';
-// import MenuItem from './menuItem';
+import MenuItems from './menuItems;'
 
 export default class MenusContainer extends Component {
     constructor() {
         super();
 
         this.state = {
-            showMenuItemFront: true,
             data: []
         };
-
-        // this.handleChange = this.handleChange.bind(this);
-        this.handleMouseEnter = this.handleMouseEnter.bind(this);
-        this.handleMouseLeave = this.handleMouseLeave.bind(this);
     }
 
-    handleMouseEnter() {
-        this.setState({ showMenuItemFront: false });
+    getMenuItems() {
+        axios
+            .get('http://127.0.0.1:8000/api/')
+            .then(response => {
+                this.setState({
+                    data: response.data
+            })
+            .catch(error => {
+                console.log('getMenuItems failed error', error);
+            })
+        })
+    }
+    
+    menuItems() {
+        return this.state.data.map(item => {
+            return <MenuItems key={item.foodID} item={item} />
+        }); 
     }
 
-    handleMouseLeave() {
-        this.setState({ showMenuItemFront: true });
+    componentDidMount() {
+        this.getMenuItems();
     }
-
-    // getMenuItemImage()
-
-    // handleChange() {
-    //     // handles when card clicked
-    // };
 
     render() {
         return (
-            <div className='menu-content-wrapper'>
-                <div className='menu-header'>
-                    <MenuTitle className='breakfast-menu' title='Breakast'/>
-                </div>
-                <div className='menu-item'>
-                    <div className='menu-item__front'>
-
-                    </div>
-                </div>
+            <div className='menu-items-wrapper'>
+                {this.menuItems()}
             </div>
         );
     }

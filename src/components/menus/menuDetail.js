@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
-import MenuTitle from './menuTitle';
+// import MenuTitle from './menuTitle';
 
 class MenuDetail extends Component {
     state = {
@@ -10,6 +10,10 @@ class MenuDetail extends Component {
     };
 
     componentDidMount() {
+        this.getMenuItem();
+    }
+    
+    getMenuItem() {
         const foodID = this.props.match.params.foodID;
         axios
             .get(`http://127.0.0.1:8000/api/${foodID}`)
@@ -17,42 +21,31 @@ class MenuDetail extends Component {
                 this.setState({
                     menuItem: res.data
                 });
-            });
-        }
-    
-    handleDelete = event => {
-        event.preventDefault();
-        const foodID = this.props.match.params.foodID;
-        axios.defaults.headers = {
-            "Content-Type": "application/json",
-            Authorization: `Token ${this.props.token}`
-        };
-        axios
-            .delete(`http://127.0.0.1:8000/api/${foodID}/delete/`)
-            .then(res => {
-                if (res.status === 204) {
-                    this.props.history.push(`/`);
-            }
+            })
+            .catch(error => {
+                console.log('getMenuItem error', error);
         })
     }
-
+   
     render() {
         const {
-            titles,
-            menu_items, 
-            menu_items_description,
-            soup_prices,
-            all_food_but_soups_prices
+            food_thumb_img,
+            description,
+            prices
         } = this.state.menuItem;
+
+        const thumbStyles={
+            width='200px'
+        };
         
         return (
             <div className='menu-detail-wrapper'>
-                <div className='menu-header'>
-                    <MenuTitle className='soups-menu' title={titles}/>
-                    <div className='subtitle'>{menu_items_description}</div>
+                <div className='menu-detail-front'>
+                    <img src={food_thumb_img} styles={thumbStyles}/>
                 </div>
-                <div className='menu-content'>
-                    
+                <div className='menu-details-back'>
+                    <div className='menu-detail-description'>{description}</div>
+                    <div className='menu-detail-prices'>{prices}</div>
                 </div>
             </div>
         );
