@@ -1,21 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
-// import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+i
 import { BrowserRouter } from 'react-router-dom';
 
-// const createStoreWithMiddleware = applyMiddleware()(compose((window.devToolsExtension ? window.devToolsExtension() : f => f)(createStore)));
+const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 import './styles/main/main.scss';
 import App from './components/App/App';
-// // import history from './history';
+import reducers from '../src/store/reducers'
 
 function main() {
   ReactDOM.render(
-    <BrowserRouter>
-      <App/>
-    </BrowserRouter>
-    , document.querySelector('.app-wrapper'));
+    <Provider store={createStoreWithMiddleware(reducers)}>
+      <BrowserRouter>
+        <App/>
+      </BrowserRouter>
+    </Provider>,
+    document.querySelector('.app-wrapper')
+  );
 }
 
 document.addEventListener('DOMContentLoaded', main);
