@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 
-import Header from '../headernavbarfooter/header' ;
-import Navbar from '../headernavbarfooter/navbar';
-import Home from '../pages/home';
-import AboutUs from '../pages/about-us';
-import BreakfastMenu from '../pages/breakfast-menu';
-import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
+
 
 
 export default class MainLayout extends Component {

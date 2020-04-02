@@ -1,16 +1,28 @@
-import { SET_MENU_ITEMS, SET_SOUP_ITEMS } from './types';
+import { SET_MENU_ITEMS, SET_SOUP_ITEMS } from '../actions/types';
 
 const INITAL_STATE = {
     menus: [],
-    soups: []
+    updatedMenus: [],
+
+    soups: [],
+    updatedSoups: []
 }
 
 export default function(state=INITAL_STATE, action) {
     switch (action.type) {
         case SET_MENU_ITEMS:
-            return [...state, menus: action.payload]
-            // break;
+            const updatedMenus = action.payload;
+            return {
+                ...state, 
+                updatedMenus
+            }
         case SET_SOUP_ITEMS:
-            return [...state, soups,: action.payload];
+            const updatedSoups = action.payload;
+            return {
+                ...state,
+                updatedSoups
+            }
+        default: 
+            return state;
     }
 }

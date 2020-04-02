@@ -24,13 +24,13 @@ export default class MenuItems extends Component {
             <Link to={`/api/${foodID}`}>
                 <div className='menu-item-wrapper'>
                     <div 
-                        className={'menu_item__front-view' + this.state.showMenuItemBack}
+                        className={'menu-item__front-view' + this.state.showMenuItemBack}
                         onMouseEnter={() => this.handleMouseEnter()}
                        >
                         <img className='menu-item__image' src={food_thumb_img}/>
                     </div>
                     <div 
-                        className={'menu_item__back-view' + this.state.showMenuItemBack}
+                        className={'menu-item__back-view' + this.state.showMenuItemBack}
                         onMouseLeave={() => this.handleMouseLeave()}
                       >
                         <div className='menu-item__description'>{description}</div>
