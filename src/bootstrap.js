@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-i
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(thunk)(compose((window.devToolsExtension ? window.devToolsExtension() : f => f)(createStore)));
 
 import './styles/main/main.scss';
 import App from './components/App/App';
-import reducers from '../src/store/reducers'
+import reducers from './store/reducers';
+
 
 function main() {
   ReactDOM.render(

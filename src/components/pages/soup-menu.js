@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../store/actions';
+import Header from '../headernavbarfooter/header';
+import Navbar from '../headernavbarfooter/navbar';
+import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 import MenuTitle from '../menus/menuTitle';
 import Soups from '../menus/soups';
 
 class SoupMenu extends Component {
+    constructor() {
+        super()
+    }
 
     componentDidMount() {
         this.props.fetchSoups();
@@ -24,15 +30,20 @@ class SoupMenu extends Component {
 
     render(){
         return (
-            <div className='updated-soup-menu-page'>
-                <div className='updated-soup-menu-page-content__wrapper'>
-                    <div className='center-column'>
-                        <MenuTitle className='updated-soup-menu-page-title' title='Soup Menu'/>
-                        <ul className='updated-soup-menu__soups'>
-                            {this.renderSoupMenu()}
-                        </ul>
+            <div>
+                <Header/>
+                <Navbar/>
+                <div className='soup-menu-page'>
+                    <div className='soup-menu-page-content__wrapper'>
+                        <div className='center-column'>
+                            <MenuTitle className='soup-menu-page-title' title='Soup Menu'/>
+                            <ul className='soup-menu__soups'>
+                                {this.renderSoupMenu()}
+                            </ul>
+                        </div>
                     </div>
                 </div>
+                <SocialMediaFooter/>
             </div>
         );
     }

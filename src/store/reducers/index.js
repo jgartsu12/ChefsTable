@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
 
-import {  menus, soups } from './menuReducer';
+import { soups } from './menuReducer';
 
 const rootReducer = combineReducers({
-    menus,
     soups
 });
 
