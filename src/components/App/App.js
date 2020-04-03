@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from '../pages/home';
 import AboutUs from '../pages/about-us';
-import SoupMenu from '../pages/soup-menu';
+import MenuContainer from '../../mainmenus/menu_main_container'
+// import SoupMenu from '../pages/soup-menu';
 // import BreakfastMenu from '../pages/breakfast-menu';
 // import LunchMenu from '../pages/lunch-menu';
 
@@ -18,7 +19,9 @@ export default class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/about-us' component={AboutUs}/>
-            <Route exact path='/soups-menu' component={SoupMenu}/> 
+            <Route 
+              path='/soups'
+              render={props => <MenuContainer {...props} />} /> 
             {/* <Route exact path='/lunch-menu' component={LunchMenu}/> */}
             {/* <Route exact path='/breakfast-menu' component={BreakfastMenu}/> */}
           </Switch>

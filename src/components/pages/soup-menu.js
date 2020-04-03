@@ -10,39 +10,36 @@ import Soups from '../menus/soups';
 
 class SoupMenu extends Component {
     constructor() {
-        super()
+        super();
+
+        this.state = {
+            soups: {}
+        }
     }
 
     componentDidMount() {
         this.props.fetchSoups();
     }
 
-    renderSoupMenu() {
-        const soups = this.props.soups.map((soup, soupID) => {
-            if(soupID < 11) {
-                return (
-                    <Soups {...soup} key={soupID}/>
-                )
-            }
-        })
-        return soups;
-    }
-
-    render(){
+    render() {
         return (
-            <div>
+            <div className='soup-menu-page'>
                 <Header/>
                 <Navbar/>
-                <div className='soup-menu-page'>
                     <div className='soup-menu-page-content__wrapper'>
                         <div className='center-column'>
                             <MenuTitle className='soup-menu-page-title' title='Soup Menu'/>
-                            <ul className='soup-menu__soups'>
-                                {this.renderSoupMenu()}
-                            </ul>
+                            <div className='soups'>
+                                {
+                                    this.props.fetchSoups.map(soups => {
+                                        return (
+                                            <Soups {...soups} key={soups.soupID}/>
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
                     </div>
-                </div>
                 <SocialMediaFooter/>
             </div>
         );
@@ -50,8 +47,9 @@ class SoupMenu extends Component {
 }
 
 function mapStateToProps(state) {
+    const { fetchSoups } = state.soups;
     return {
-        SoupMenu: state.soups.SoupMenu
+        fetchSoups
     }
 }
 
