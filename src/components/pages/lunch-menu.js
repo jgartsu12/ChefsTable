@@ -1,46 +1,54 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import axios from 'axios';
+import Header from '../headernavbarfooter/header';
+import Navbar from '../headernavbarfooter/navbar';
+import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
+import LunchFoods from './LunchFoodList';
 
-import * as actions from '../../store/actions'
-import MenuItems from '../menus/menuItems';
+export default class LunchMenu extends Component {
+    constructor(props) {
+        super(props);
 
-class LunchMenu extends Component {
-    
+        this.state = {
+            lunches: []
+        };
+
+        this.getLunches = this.getLunches.bind(this);
+    }
+
+    getLunches() {
+        axios
+            .get('http://127.0.0.1:8000/api/lunch/')
+            .then(response => {
+                this.setState({
+                    lunches: response.data
+                });
+            })
+            .catch(error => {
+                console.log('getLunches failed', error);
+        });
+    }
+
+    lunches() {
+        return this.state.lunches.map(item => {
+            return <LunchFoods key={item.id} item={item} />
+        });
+    }
+
     componentDidMount() {
-        this.props.fetchMenuItems();
+        this.getLunches();
     }
 
-
-    renderLunchMenu() {
-        let lunchItems;
-        // if lunchItems === on LUnch menu title from django
-        // return an array of object lunches
-    }
-
-    renderMenuItems = function() {
-        const menuItems = this.props.menuItems.map((menuItem, index) => {
-            if(index < 10) {
-                return (
-                    <MenuItems {...menuItem} key={index}/>
-                )
-            }
-        })
-        return menuItems;
-    }
-
-    render() {
-        return (
-            <div>
-
-            </div>
-        )
-    }
+   render() {
+       return (
+           <div>
+                <Header />
+                <Navbar />
+                <div className='lunch-menu-wrapper'>
+                    {this.lunches()}
+                </div>
+                <SocialMediaFooter/>
+           </div>
+       );
+   }
 }
-
-function mapStateToProps(state) {
-    return {
-       LunchMenu: state.menuItems.LunchMenu
-    }
-}
-
-export default connect(mapStateToProps, actions)(LunchMenu);

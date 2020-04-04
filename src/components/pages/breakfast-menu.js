@@ -1,44 +1,54 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-import MenusContainer from '../menus/menusContainer';
-import MenuTitle from '../menus/menuTitle';
+import Header from '../headernavbarfooter/header';
+import Navbar from '../headernavbarfooter/navbar';
+import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
+import BreakfastFoods from './BreakfastFoodList';
 
 export default class BreakfastMenu extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
-            menuItems: []
+            breakfastFood: []
         };
+
+        this.getBreakfastFood = this.getBreakfastFood.bind(this);
     }
 
-    getMenuItems() {
+    getBreakfastFood() {
         axios
-            .get('http://127.0.0.1:8000/api/')
-            .then(res => {
+            .get('http://127.0.0.1:8000/api/breakfast/')
+            .then(response => {
                 this.setState({
-                    menuItems: [...res.data]
+                    breakfastFood: response.data
                 });
             })
             .catch(error => {
-                console.log('breakfast-menu error in getMenuItems', error);
+                console.log('getBreakfastFood failed', error);
+        });
+    }
+
+    breakfastFoods() {
+        return this.state.breakfastFoods.map(item => {
+            return <BreakfastFoods key={item.id} item={item} />
         });
     }
 
     componentDidMount() {
-        this.getMenuItems();
+        this.getBreakfastFood();
     }
-    render() {
-        return (
-            <div className='breakfast-menu-wrapper'>
-                <div className='breakfast-menu-header'>
-                    <MenuTitle className="breakfast-menu__menu-title" title='Breakfast Menu'/>
+
+   render() {
+       return (
+           <div>
+                <Header />
+                <Navbar />
+                <div className='breakfast-menu-wrapper'>
+                    {this.breakfastFoods()}
                 </div>
-                <div className='breakfaast-menu-content'>
-                    <MenusContainer/>
-                </div>
-            </div>
-        );
-    }
+                <SocialMediaFooter/>
+           </div>
+       );
+   }
 }

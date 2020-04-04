@@ -1,56 +1,54 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import * as actions from '../../store/actions';
+import axios from 'axios';
 import Header from '../headernavbarfooter/header';
 import Navbar from '../headernavbarfooter/navbar';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
-import MenuTitle from '../menus/menuTitle';
-import Soups from '../menus/soups';
+import Soups from './SoupListItems';
 
-class SoupMenu extends Component {
-    constructor() {
-        super();
+export default class Soup extends Component {
+    constructor(props) {
+        super(props);
 
         this.state = {
-            soups: {}
-        }
+            soups: []
+        };
+
+        this.getSoups = this.getSoups.bind(this);
+    }
+
+    getSoups() {
+        axios
+            .get('http://127.0.0.1:8000/api/soups/')
+            .then(response => {
+                this.setState({
+                    soups: response.data
+                });
+            })
+            .catch(error => {
+                console.log('getSoups failed', error);
+        });
+    }
+
+    soups() {
+        return this.state.soups.map(item => {
+            return <Soups key={item.id} item={item} />
+        });
     }
 
     componentDidMount() {
-        this.props.fetchSoups();
+        this.getSoups();
     }
 
-    render() {
-        return (
-            <div className='soup-menu-page'>
-                <Header/>
-                <Navbar/>
-                    <div className='soup-menu-page-content__wrapper'>
-                        <div className='center-column'>
-                            <MenuTitle className='soup-menu-page-title' title='Soup Menu'/>
-                            <div className='soups'>
-                                {
-                                    this.props.fetchSoups.map(soups => {
-                                        return (
-                                            <Soups {...soups} key={soups.soupID}/>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
-                    </div>
+   render() {
+       return (
+           <div>
+                <Header />
+                <Navbar />
+                <div className='soup-menu-wrapper'>
+                    {this.soups()}
+                </div>
                 <SocialMediaFooter/>
-            </div>
-        );
-    }
+           </div>
+       );
+   }
 }
-
-function mapStateToProps(state) {
-    const { fetchSoups } = state.soups;
-    return {
-        fetchSoups
-    }
-}
-
-export default connect(mapStateToProps, actions)(SoupMenu);

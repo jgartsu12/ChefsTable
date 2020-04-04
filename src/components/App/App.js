@@ -3,10 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from '../pages/home';
 import AboutUs from '../pages/about-us';
-import MenuContainer from '../../mainmenus/menu_main_container'
-// import SoupMenu from '../pages/soup-menu';
-// import BreakfastMenu from '../pages/breakfast-menu';
-// import LunchMenu from '../pages/lunch-menu';
+import SoupMenu from '../pages/soup-menu';
+import BreakfastMenu from '../pages/breakfast-menu';
+import LunchMenu from '../pages/lunch-menu';
 
 export default class App extends Component {
   constructor(props) {
@@ -21,9 +20,13 @@ export default class App extends Component {
             <Route exact path='/about-us' component={AboutUs}/>
             <Route 
               path='/soups'
-              render={props => <MenuContainer {...props} />} /> 
-            {/* <Route exact path='/lunch-menu' component={LunchMenu}/> */}
-            {/* <Route exact path='/breakfast-menu' component={BreakfastMenu}/> */}
+              render={props => <SoupMenu {...props} />} /> 
+            <Route 
+              path='/lunch-menu' 
+              render={props => <LunchMenu {...props}/>} />
+            <Route 
+              path='/breakfast-menu'
+              render={props => <BreakfastMenu {...props} />}/>
           </Switch>
         </Router>
       </div>
