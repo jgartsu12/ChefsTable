@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import Header from '../components/headernavbarfooter/header';
-// import Navbar from '../components/headernavbarfooter/navbar';
-// import SocialMediaFooter from '../components/headernavbarfooter/socialMediaFooter';
-import Soups from './soups-edited';
+import Header from '../components/headernavbarfooter/header';
+import Navbar from '../components/headernavbarfooter/navbar';
+import SocialMediaFooter from '../components/headernavbarfooter/socialMediaFooter';
+import Soups from '../components/util/soup-api';
 
 export default class MenuContainer extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             soups: []
@@ -29,32 +29,26 @@ export default class MenuContainer extends Component {
         });
     }
 
-    // soups() {
-    //     this.state.data.map(soups => {
-    //         return <Soups key={soups.id} title={soups.title} name={soups.name} description={soups.description} front_thumb_img_url={soups.front_thumb_img_url} />
-    //     });
-    // }
+    soups() {
+        return this.state.soups.map(item => {
+            return <Soups key={item.id} item={item} />
+        });
+    }
 
     componentDidMount() {
         this.getSoups();
     }
 
-    render() {
-        const { soups } = this.state;
-        return (
-            <div className='soups'>
-              { soups.map(soup => {
-                  const { id, title, name, description, front_thumb_img_url } = soup;
-                  return (
-                      <ul key={id}>
-                          <li>{title}</li>
-                          <li>{name}</li>
-                          <li>{description}</li>
-                          <li>{front_thumb_img_url}</li>
-                      </ul>
-                  )
-              })}
-            </div>
-        );
-    }
+   render() {
+       return (
+           <div>
+                <Header />
+                <Navbar />
+                <div className='soup-menu-wrapper'>
+                    {this.soups()}
+                </div>
+                <SocialMediaFooter/>
+           </div>
+       );
+   }
 }
