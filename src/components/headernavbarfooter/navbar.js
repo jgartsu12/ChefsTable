@@ -37,7 +37,7 @@ class Navbar extends Component {
                 </div>
 
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/breakfast' activeClassName='nav-link-active'>
+                    <NavLink exact to='/breakfast-menu' activeClassName='nav-link-active'>
                         <button className='navbar-links-btn'>
                             <div className='navbar-links-btn-txt'>
                                 BREAKFAST
@@ -47,7 +47,7 @@ class Navbar extends Component {
                 </div>
 
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/' activeClassName='nav-link-active'>
+                    <NavLink exact to='/lunch-menu' activeClassName='nav-link-active'>
                         <button className='navbar-links-btn'>
                             <div className='navbar-links-btn-txt'>
                                 LUNCH

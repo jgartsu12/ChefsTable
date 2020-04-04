@@ -10,7 +10,7 @@ export default class BreakfastMenu extends Component {
         super(props);
 
         this.state = {
-            breakfastFood: []
+            breakfast: []
         };
 
         this.getBreakfastFood = this.getBreakfastFood.bind(this);
@@ -21,8 +21,8 @@ export default class BreakfastMenu extends Component {
             .get('http://127.0.0.1:8000/api/breakfast/')
             .then(response => {
                 this.setState({
-                    breakfastFood: response.data
-                });
+                    breakfast: response.data
+                 });
             })
             .catch(error => {
                 console.log('getBreakfastFood failed', error);
@@ -30,7 +30,7 @@ export default class BreakfastMenu extends Component {
     }
 
     breakfastFoods() {
-        return this.state.breakfastFoods.map(item => {
+        return this.state.breakfast.map(item => {
             return <BreakfastFoods key={item.id} item={item} />
         });
     }

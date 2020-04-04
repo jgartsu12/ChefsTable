@@ -10,7 +10,7 @@ export default class LunchMenu extends Component {
         super(props);
 
         this.state = {
-            lunches: []
+            lunch: []
         };
 
         this.getLunches = this.getLunches.bind(this);
@@ -21,7 +21,7 @@ export default class LunchMenu extends Component {
             .get('http://127.0.0.1:8000/api/lunch/')
             .then(response => {
                 this.setState({
-                    lunches: response.data
+                    lunch: response.data
                 });
             })
             .catch(error => {
@@ -30,7 +30,7 @@ export default class LunchMenu extends Component {
     }
 
     lunches() {
-        return this.state.lunches.map(item => {
+        return this.state.lunch.map(item => {
             return <LunchFoods key={item.id} item={item} />
         });
     }
