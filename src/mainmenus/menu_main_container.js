@@ -10,7 +10,7 @@ export default class MenuContainer extends Component {
         super();
 
         this.state = {
-            data: []
+            soups: []
         };
 
         this.getSoups = this.getSoups.bind(this);
@@ -20,9 +20,8 @@ export default class MenuContainer extends Component {
         axios
             .get('http://127.0.0.1:8000/api/soups/')
             .then(response => {
-                console.log('soup response data', response);
                 this.setState({
-                    data: response.data.soups
+                    soups: response.data
                 });
             })
             .catch(error => {
@@ -30,20 +29,31 @@ export default class MenuContainer extends Component {
         });
     }
 
-    soups() {
-        this.state.data.map(soups => {
-            return <Soups key={soups.id} title={soups.title} name={soups.name} description={soups.description} front_thumb_img_url={soups.front_thumb_img_url} />
-        });
-    }
+    // soups() {
+    //     this.state.data.map(soups => {
+    //         return <Soups key={soups.id} title={soups.title} name={soups.name} description={soups.description} front_thumb_img_url={soups.front_thumb_img_url} />
+    //     });
+    // }
 
     componentDidMount() {
         this.getSoups();
     }
 
     render() {
+        const { soups } = this.state;
         return (
-            <div>
-                {this.soups()}
+            <div className='soups'>
+              { soups.map(soup => {
+                  const { id, title, name, description, front_thumb_img_url } = soup;
+                  return (
+                      <ul key={id}>
+                          <li>{title}</li>
+                          <li>{name}</li>
+                          <li>{description}</li>
+                          <li>{front_thumb_img_url}</li>
+                      </ul>
+                  )
+              })}
             </div>
         );
     }
