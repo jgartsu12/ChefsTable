@@ -44,7 +44,7 @@ export default class Soup extends Component {
            <div>
                 <Header />
                 <Navbar />
-                <div className='soup-menu-wrapper'>
+                <div className='menu'>
                     {this.soups()}
                 </div>
                 <SocialMediaFooter/>

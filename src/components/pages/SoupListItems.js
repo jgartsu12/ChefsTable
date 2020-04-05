@@ -19,35 +19,30 @@ export default class Soups extends Component {
     }
 
     render() {
-        const { id, title, name, description, front_thumb_img_url } = this.props.item;
+        const { _id, _title, name, description, front_thumb_img_url } = this.props.item;
         return (
-            // <Link to={`/soups/${id}`}>
-            <div>
+            <div className='menu-items'>
                <div 
-                    className='front-soup-menu-wrapper'
+                    className='menu-items__front'
                     onMouseLeave={() => this.handleMouseLeave()}
                 >
                     <img 
-                        className={'front-soup-image' + this.state.showSoupBack}
+                        className='menu-items__front__image'
                         src={front_thumb_img_url}
                     />
                 </div>
                 <div 
-                    className='back-soup-menu-wrapper'
+                    className='menu-items__back'
                     onMouseEnter={() => this.handleMouseEnter()}
                 >
-                    <div className='back-soup-menu-title'>
-                        {title}
-                    </div>
-                    <div className='back-soup-menu-name'>
+                    <div className='menu-items__back__name'>
                         {name}
                     </div>
-                    <div className='back-soup-menu-description'>
+                    <div className='menu-items__back__description'>
                         {description}
                     </div>
                 </div>
             </div>
-            // </Link>
         );
     }
 }        

@@ -44,7 +44,7 @@ export default class LunchMenu extends Component {
            <div>
                 <Header />
                 <Navbar />
-                <div className='lunch-menu-wrapper'>
+                <div className='menu'>
                     {this.lunches()}
                 </div>
                 <SocialMediaFooter/>

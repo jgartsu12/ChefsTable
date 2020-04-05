@@ -44,7 +44,7 @@ export default class BreakfastMenu extends Component {
            <div>
                 <Header />
                 <Navbar />
-                <div className='breakfast-menu-wrapper'>
+                <div className='menu'>
                     {this.breakfastFoods()}
                 </div>
                 <SocialMediaFooter/>
