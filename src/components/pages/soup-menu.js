@@ -4,6 +4,7 @@ import Header from '../headernavbarfooter/header';
 import Navbar from '../headernavbarfooter/navbar';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 import Soups from './SoupListItems';
+import MenuTitle from '../headernavbarfooter/menuTitle';
 
 export default class Soup extends Component {
     constructor(props) {
@@ -44,6 +45,7 @@ export default class Soup extends Component {
            <div>
                 <Header />
                 <Navbar />
+                <MenuTitle className='soup-menu-title' title='Soups Menu'/>
                 <div className='menu'>
                     {this.soups()}
                 </div>
