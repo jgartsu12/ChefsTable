@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default class Soups extends Component {
     constructor(props) {
@@ -21,7 +21,8 @@ export default class Soups extends Component {
     render() {
         const { id, title, name, description, front_thumb_img_url } = this.props.item;
         return (
-            <Link to={`/soups/${id}`}>
+            // <Link to={`/soups/${id}`}>
+            <div>
                <div 
                     className='front-soup-menu-wrapper'
                     onMouseLeave={() => this.handleMouseLeave()}
@@ -45,7 +46,8 @@ export default class Soups extends Component {
                         {description}
                     </div>
                 </div>
-            </Link>
+            </div>
+            // </Link>
         );
     }
 }        

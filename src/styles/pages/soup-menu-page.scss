@@ -1,75 +1,58 @@
-.soups-menu-page {
-    .soups-menu-page-content__wrapper {
-        display: grid;
-        grid-template-rows: 1/-1;
-        grid-template-columns: 1/-1;
-        
-        perspective: 150rem;
-        -moz-perspective: 150rem;
-    
-        & > * {
-            grid-row: 1/-1;
-            grid-column: 1/-1;
-        }
-
-        .soups {
-            &__front,
-            &__back {
-                backface-visibility: hidden;
-                transition: all .3s ease;
-            }
-
-            &__back {
-                transform: rotateY(-180deg);
-            }
-
-            &:hover &__front {
-                transform: rotateY(180deg);
-            }
-            &:hover &__back {
-                transform: rotateY(0deg);
-            }
-        }
-    }
-}
-
-.soups__front {
-    &__image {
-        img {
-            height: 314px;
-            width: 240px;
-            display: grid;
-            justify-items: center;
-            align-items: center;
-        }
-    }
-}
-
-.soups__back {
-    height: 314px;
-    width: 240px;
-    background-color: white;
-    box-shadow: 0 2px 20px 0 rgba(0,0,0,0.1);
-
+.soup-menu-wrapper {
     display: grid;
-    grid-template-rows: 25px [name-s] 25px [name-e description-s] 25px [description-e];
-    grid-template-columns: 25px [s] 1fr [e] 25px;
-    justify-items: start;
-    grid-row-gap: 7px;
+    grid-template-rows: 1/-1;
+    grid-template-columns: 1/-1;
 
-    & > * {
-        grid-column: s/e;
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+
+    // front and back
+    .front-soup-menu-wrapper,
+    .back-soup-menu-wrapper {
+        backface-visibility: hidden;
+        transition: all .3s ease;
     }
 
-    &__name {
-        grid-row: name-s/name-e;
-        font-size: 25px;
-        color: #000;
+    // front of plate
+    .front-soup-menu-wrapper{
+        height: 314px;
+        width: 240px;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+
+        &:hover .front-soup-img {
+            transform: rotateY(180deg);
+        }
+    }
+        // back of plate
+        &:hover .back-soup-menu-wrapper {
+        height: 314px;
+        width: 240px;
+        background-color: #333;;
+        opacity: 30px;
+
+        display: grid;
+        grid-template-rows: 20px;
+        grid-template-columns: 20px;
+        justify-items: start;
+        row-gap: 7px;
+
+        transform: rotateY(-180deg);
+
+        .back-soup-menu-title {
+            color: #000;
+            font-size: 20px;
+            font-family: cursive;
+        }
+
+        // .back-soup-menu-name {
+
+        // }
+
+        // .back-soup-menu-description {
+
+        // }
     }
 
-    &__description {
-        grid-row: description-s/description-e;
-        font-size: 25px;
-        color: #000;
-    }
 }
