@@ -24,7 +24,7 @@ const PhlogContentItems = props => {
                     lines={5}
                     ellipsis={
                         <span>
-                            ...<Link to={`/pholog/${id}`}>Read more about photo</Link>
+                            ...<Link to={`/phlog/${id}`}>Read more about photo</Link>
                         </span>
                     }
                 >
@@ -33,4 +33,6 @@ const PhlogContentItems = props => {
             </div>
         </div>
     );
-};
+}
+
+export default PhlogContentItems;

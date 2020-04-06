@@ -54,7 +54,17 @@ class Navbar extends Component {
                             </div>
                         </button>
                     </NavLink>
-                </div>                
+                </div> 
+
+                <div className='nav-link-wrapper'>
+                    <NavLink exact to='/phlog' activeClassName='nav-link-active'>
+                        <button className='navbar-links-btn'>
+                            <div className='navbar-links-btn-txt'>
+                                View Our Phlog
+                            </div>
+                        </button>
+                    </NavLink>
+                </div>  
             </div>
         );
     }
