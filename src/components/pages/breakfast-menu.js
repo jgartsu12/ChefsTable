@@ -4,7 +4,7 @@ import Header from '../headernavbarfooter/header';
 import Navbar from '../headernavbarfooter/navbar';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 import BreakfastFoods from './BreakfastFoodList';
-import MainMenu from '../headernavbarfooter/menuTitle';
+import MenuTitle from '../headernavbarfooter/menuTitle';
 
 export default class BreakfastMenu extends Component {
     constructor(props) {
