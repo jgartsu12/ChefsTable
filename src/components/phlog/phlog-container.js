@@ -6,16 +6,16 @@ import axios from "axios";
 // import BlogItem from "../blog/blog-item";
 // import BlogModal from "../modals/blog-modal";
 
-export default class BlogContainer extends Component {
+export default class PhlogContainer extends Component {
     constructor() {
         super();
 
         this.state = {
-            blogContentItems: [],
+            phlogContentItems: [],
             countTotal: 0,
             currentPage: 0,
             isLoading: true,
-            openBlogModal: false
+            openPhlogModal: false
         };
     }
 
