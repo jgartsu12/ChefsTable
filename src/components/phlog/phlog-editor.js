@@ -3,6 +3,9 @@ import axios from 'axios';
 import { connect } from "react-redux";
 import DropzoneComponent from 'react-dropzone-component';
 
+import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
+import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
+
 class PhlogEditor extends Component {
     constructor(props) {
         super(props);
@@ -146,8 +149,8 @@ class PhlogEditor extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} className='phlog-form-wrapper'>
-                <div className='three-column'>
+            <form onSubmit={this.handleSubmit} className='phlog-editor-wrapper'>
+                <div className='one-column'>
                     <div className='image-uploaders'>
                         {this.props.editMode && this.props.phlog_image_url ? (
                             <div className='phlog-manager'>

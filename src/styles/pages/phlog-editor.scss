@@ -1,0 +1,17 @@
+.phlog-editor-wrapper {
+    display: grid;
+    grid-gap: 21px;
+    grid-template-columns: 1fr;
+    padding: 42px;
+
+    // .one-column {
+
+    // }
+
+    .image-uploaders {
+        display: grid;
+        grid-gap: 21px;
+        grid-template-columns: 600px;
+        justify-content: center;
+    }
+}
