@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import ItemsCarousel from 'react-items-carousel';
 import range from 'lodash/range';
 
+import PhlogImages from './phlog-images';
+
 export default class PhlogCarousel extends Component {
     componentWillMount() {
         this.setState({
             phlogImages: [],
             activeImageIndex: 0,
-        });
+        }); 
     
     setTimeout(() => {
         this.setState({
@@ -51,7 +53,7 @@ export default class PhlogCarousel extends Component {
                 leftCheveron={'<'}
                 outsideChevron={false}
                 >
-                    {phlogImages}
+                    {PhlogImages}
             </ItemsCarousel>
         );
     }

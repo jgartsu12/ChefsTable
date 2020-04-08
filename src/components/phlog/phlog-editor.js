@@ -1,57 +1,82 @@
-import React, { Component } from "react";
-import axios from "axios";
-import DropzoneComponent from 'dropzo'
+import React, { Component } from 'react';
+import axios from 'axios';
+import DropzoneComponent from 'react-dropzone-component';
+
+import '../../../node_modules/react-dropzone-component/styles/filepicker.css';
+import '../../../node_modules/dropzone/dist/min/dropzone.min.css';
+
 
 export default class PhlogEditor extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            id: '',
-            phlog_title: '',
             phlog_status: '',
-            phlog_description: '',
-            phlog_image_url: '',
+            phlog_image: '',
+            editMode: false,
+            position: '',
             apiUrl: 'http://127.0.0.1:8000/phlogapi/phlog/',
             apiAction: 'post'
         };
         
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        
         this.componentConfig = this.componentConfig.bind(this);
         this.djsConfig = this.djsConfig.bind(this);
-        this.handleFeaturedImageDrop = this.handleFeaturedImageDrop.bind(this);
-        this.deleteImage = this.deleteImage.bind(this);
-        this.featuredImageRef = React.createRef();
+        this.handlePhlogImageDrop = this.handlePhlogImageDrop.bind(this);
+        this.handleDeleteImage = this.handleDeleteImage.bind(this);
+
+        this.phlogImageRef = React.createRef();
     }
 
-    deleteImage(image) {
+    handleDeleteImage = event => {
+        event.preventDefault();
+        axios.defaults.headers = {
+            "Content-Type": "application/json",
+            Authorization: `Token ${this.props.token}`
+        };
         axios
             .delete(
-                `http://127.0.0.1:8000/phlogapi/phlog/${this.props.phlog.id}?image=${image}/delete`,
-                { withCredentials: true }
-            )
+                `http://127.0.0.1:8000/phlogapi/phlog/${this.state.id}/delete`)
             .then(response => {
-                this.props.handlePhlogImageDelete();
+                if (response.status === 204) {
+                    this.props.history.push(`/`);
+                }
             })
             .catch(error => {
-                console.log('deleteImage error', error)
+                console.log('handleDeleteImage error', error)
         });
-    }
+    };
 
-    componentWillMount() {
-        if (this.props.editMode) {
+    componentDidUpdate() {
+        if (Object.keys(this.props.phlogsToEdit).length > 0) {
+            const {
+                id,
+                phlog_image_url,
+                phlog_status,
+                position
+            } = this.props.phlogsToEdit;
+
+            this.props.clearPhlogsToEdit();
+
             this.setState({
-                id: this.props.phlog.id,
-                phlog_title: this.props.phlog.phlog_title,
-                phlog_status: this.props.phlog.phlog_status,
-                phlog_description: this.props.phlog.pholog_description,
-                apiUrl: `http://127.0.0.1:8000/phlogapi/phlog/${this.props.phlog.id}?image=${image}/update`,
+                id: id,
+                phlog_image_url: phlog_image_url || '',
+                phlog_status: phlog_status || '',
+                position: position || '',
+                editMode: true,
+                apiUrl: `http://127.0.0.1:8000/phlogapi/phlog/${id}`,
                 apiAction: 'patch'
             });
-        }
+        } 
     }
+
+    handlePhlogImageDrop() {
+        return {
+            addedfile: file => this.setState({ phlog_image_url: file })
+        };
+    }
+
 
     componentConfig() {
         return {
@@ -64,22 +89,14 @@ export default class PhlogEditor extends Component {
     djsConfig() {
         return {
           addRemoveLinks: true,
-          maxFiles: 1
-        };
-    }
-
-    handlePhlogImageDrop() {
-        return {
-            addedfile: file => this.setState({ phlog_image_url: file })
+          maxFiles: 3
         };
     }
 
     buildForm() {
         let formData = new FormData();
 
-        formData.append('phlog[phlog_title]', this.state.title);
         formData.append('phlog[phlog_status]', this.state.phlog_status);
-        formData.append('phlog[phlog_description]', this.state.phlog_description)
 
         if (this.state.phlog_image_url) {
             formData.append(
@@ -91,6 +108,12 @@ export default class PhlogEditor extends Component {
         return formData;
     }
 
+    handleChange(event) {
+        this.setState({
+          [event.target.name]: event.target.value
+        });
+    }
+
     handleSubmit(event) {
         axios({
             method: this.state.apiAction,
@@ -100,13 +123,11 @@ export default class PhlogEditor extends Component {
         })
         .then(response => {
             if (this.state.phlog_image_url) {
-                this.featuredImageRef.current.dropzone.removeAllFiles();
+                this.phlogImageRef.current.dropzone.removeAllFiles();
             }
 
             this.setState({
-                phlog_title: '',
                 phlog_status: '',
-                phlog_description: '',
                 phlog_image_url: ''
             });
 
@@ -123,55 +144,23 @@ export default class PhlogEditor extends Component {
      event.preventDefault();
     }
 
-    handleChange(event) {
-        this.setState({
-          [event.target.name]: event.target.value
-        });
-    }
-
     render() {
         return (
             <form onSubmit={this.handleSubmit} className='phlog-form-wrapper'>
-                <div className='two-column'>
-                    <input 
-                        type='text'
-                        onChange={this.handleChange}
-                        name='phlog_title'
-                        placeholder='Phlog Title'
-                        value={this.state.phlog_title}
-                    />
-
-                    <input
-                        type='text'
-                        onChange={this.handleChange}
-                        name='phlog_status'
-                        placeholder='Phlog status'
-                        value={this.state.phlog_status}
-                    />
-
-                    <input 
-                        type='text'
-                        onChange={this.handleChange}
-                        name='phlog_description'
-                        placeholder='Describe the phlog'
-                        value={this.state.phlog_description}
-                    />
-                </div>
-
-                <div className='image-uploaders'>
-                    {this.props.editMode && this.props.phlog_image_url ? (
-                        <div className='phlog-manager'>
-                            <img src={this.props.phlog.phlog_image_url} />
-
+                <div className='three-column'>
+                    <div className='image-uploaders'>
+                        {this.props.editMode && this.props.phlog_image_url ? (
+                            <div className='phlog-manager'>
+                                <img src={this.props.phlog.phlog_image_url} />
                             <div className='remove-image-link'>
                                 <a onClick={() => this.deleteImage('phlog_image_url')}>
-                                    Remove Phlog
+                                    Remove Photos
                                 </a>
                             </div>
                         </div>
                     ) : (
                        <DropzoneComponent
-                            ref={this.featuredImageRef}
+                            ref={this.phlogImageRef}
                             config={this.componentConfig()}
                             djsConfig={this.djsConfig()}
                             eventHandlers={this.handleFeaturedImageDrop()}
@@ -180,7 +169,10 @@ export default class PhlogEditor extends Component {
                         </DropzoneComponent>
                     )}
                 </div>
-                <button className='btn'>Save</button>
+                    <button className='btn' type='submit'>
+                        Save
+                    </button>
+                </div>
             </form>
         );
     }

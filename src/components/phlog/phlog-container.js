@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 
 import PhlogContentItems from './phlog-content-items';
+import PhlogEditor from './phlog-editor';
 import PhlogModal from './phlog-modal';
 
 export default class PhlogContainer extends Component {
@@ -18,7 +19,7 @@ export default class PhlogContainer extends Component {
             phlogModalIsOpen: false
         };
 
-        this.getPhlogContentItems = this.getPlogContentItems.bind(this);
+        this.getPhlogContentItems = this.getPhlogContentItems.bind(this);
         this.onScroll = this.onScroll.bind(this);
         window.addEventListener('scroll', this.onScroll, false);
         this.handleNewPhlogClick = this.handleNewPhlogClick.bind(this);
@@ -111,18 +112,18 @@ export default class PhlogContainer extends Component {
 
     render() {
         const phlogRecords = this.state.phlogContentItems.map(phlogContentItem => {
-            if (this.props.loggedInStatus === 'LOGGED_IN') {
-                return (
-                    <div key={phlogContentItem.id} className='admin-user-blog'>
-                        <PhlogContentItems phlogContentItem={phlogContentItem} />
-                        <a onClick={() => this.handleDeleteClick(phlogContentItem)}>
-                            <FontAwesomeIcon icon='trash'/>
-                        </a>
-                    </div>
-                );
-            } else { 
+            // if (this.props.loggedInStatus === 'LOGGED_IN') {
+            //     return (
+            //         <div key={phlogContentItem.id} className='admin-user-blog'>
+            //             <PhlogContentItems phlogContentItem={phlogContentItem} />
+            //             <a onClick={() => this.handleDeleteClick(phlogContentItem)}>
+            //                 <FontAwesomeIcon icon='trash'/>
+            //             </a>
+            //         </div>
+            //     );
+            // } else { 
                 return <PhlogContentItems key={phlogContentItem.id} phlogContentItem={phlogContentItem}/>;
-            }
+            // }
         });
 
         return (
@@ -133,13 +134,13 @@ export default class PhlogContainer extends Component {
                     phlogModalIsOpen={this.state.phlogModalIsOpen}
                 />
 
-                {this.props.loggedInStatus === 'LOGGED_IN' ? (
+                {/* {this.props.loggedInStatus === 'LOGGED_IN' ? ( */}
                     <div className='new-phlog-link'>
                         <a onClick={this.handleNewPhlogClick}>
                             <FontAwesomeIcon icon='plus-circle'/>
                         </a>
                     </div>
-                ) : null}
+                {/* ) : null} */}
                 
                 <div className='phlog-content-wrapper'>{phlogRecords}</div>
 
@@ -152,3 +153,21 @@ export default class PhlogContainer extends Component {
         );
     }
 }
+
+// fetchPhlogImages = () => {
+//         axios
+//         .get('http://127.0.0.1:8000/phlogapi/phlog')
+//         .then(response => {
+//             this.setState({
+//                 phlogsImages: response.data
+//             });
+//         })
+//         .catch(error => {
+//             console.log('fetchPhlogImagesError', error);
+//         });
+//     }
+
+//     componentDidMount() {
+//         this.fetchPhlogImages;
+//     }
+// }

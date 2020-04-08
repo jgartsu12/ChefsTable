@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 export default class BreakfastFoods extends Component {
     constructor(props) {
         super(props);

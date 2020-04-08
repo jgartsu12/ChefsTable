@@ -17,7 +17,7 @@ class Navbar extends Component {
                 </div>
             
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/about-us' activeClassName='nav-link-active'>
+                    <NavLink exact to='/about-us/' activeClassName='nav-link-active'>
                         <button className='navbar-links-btn'>
                             <div className='navbar-links-btn-txt'>
                                 ABOUT US
@@ -27,7 +27,7 @@ class Navbar extends Component {
                 </div>
 
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/soups' activeClassName='nav-link-active'>
+                    <NavLink exact to='/soups/' activeClassName='nav-link-active'>
                         <button className='navbar-links-btn'>
                             <div className='navbar-links-btn-txt'>
                                 SOUPS
@@ -37,7 +37,7 @@ class Navbar extends Component {
                 </div>
 
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/breakfast-menu' activeClassName='nav-link-active'>
+                    <NavLink exact to='/breakfast-menu/' activeClassName='nav-link-active'>
                         <button className='navbar-links-btn'>
                             <div className='navbar-links-btn-txt'>
                                 BREAKFAST
@@ -47,7 +47,7 @@ class Navbar extends Component {
                 </div>
 
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/lunch-menu' activeClassName='nav-link-active'>
+                    <NavLink exact to='/lunch-menu/' activeClassName='nav-link-active'>
                         <button className='navbar-links-btn'>
                             <div className='navbar-links-btn-txt'>
                                 LUNCH
@@ -57,14 +57,35 @@ class Navbar extends Component {
                 </div> 
 
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/phlog' activeClassName='nav-link-active'>
+                    <NavLink exact to='/phlog/' activeClassName='nav-link-active'>
                         <button className='navbar-links-btn'>
                             <div className='navbar-links-btn-txt'>
-                                View Our Phlog
+                                Photo Blog
                             </div>
                         </button>
                     </NavLink>
                 </div>  
+                {
+                    this.props.isAuthenticated ?
+
+                    <div className='nav-link-wrapper'>
+                        <button className='navbar-links-btn'>
+                            <div className='navbar-links-btn-txt'>
+                                Logout
+                            </div>
+                        </button>
+                    </div>
+                    :
+                    <div className='nav-link-wrapper'>
+                        <NavLink exact to='/login/' activeClassName='nav-link-active'>
+                            <button className='navbar-links-btn'>
+                                <div className='navbar-links-btn-txt'>
+                                    Login
+                                </div>
+                            </button>
+                        </NavLink>
+                    </div>  
+                }
             </div>
         );
     }
