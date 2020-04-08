@@ -9,14 +9,21 @@ import {
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
+
 import { authLogin } from '../../store/actions/auth'
 
 class LoginForm extends Component {
-  state = {
-    username: "",
-    password: ""
-  };
+  constructor(props){
+    super(props);
 
+    this.state = {
+      username: "",
+      password: ""
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+}
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -79,8 +86,8 @@ class LoginForm extends Component {
                 </Button>
               </Segment>
             </Form>
-            <Message>
-              New to us? <NavLink to="/signup">Sign Up</NavLink>
+            <Message> 
+              New To Chefs Table Order Online? <NavLink to="/signup">Sign Up</NavLink>
             </Message>
           </React.Fragment>
         </Grid.Column>

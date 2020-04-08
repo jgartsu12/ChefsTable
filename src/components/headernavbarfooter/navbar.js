@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router';
 import { NavLink } from 'react-router-dom';
+// import { connect } from 'react-redux'
+
+import { logout } from '../../store/actions/auth'
 
 class Navbar extends Component {
     render() {
@@ -65,11 +68,22 @@ class Navbar extends Component {
                         </button>
                     </NavLink>
                 </div>  
-                {
+
+               <div className='nav-link-wrapper'>
+                    <NavLink exact to='/phlog-manager/' activeClassName='nav-link-active'>
+                        <button className='navbar-links-btn'>
+                            <div className='navbar-links-btn-txt'>
+                                Phlog Manager
+                            </div>
+                        </button>
+                    </NavLink>
+                </div>  
+
+                {/* {
                     this.props.isAuthenticated ?
 
                     <div className='nav-link-wrapper'>
-                        <button className='navbar-links-btn'>
+                        <button className='navbar-links-btn' onClick={this.props.logout}>
                             <div className='navbar-links-btn-txt'>
                                 Logout
                             </div>
@@ -85,10 +99,20 @@ class Navbar extends Component {
                             </button>
                         </NavLink>
                     </div>  
-                }
+                } */}
             </div>
         );
     }
 }
+
+
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     logout: () => dispatch(logout())
+//   };
+// };
+
 export default withRouter(Navbar);
+// export default withRouter(connect(null, mapDispatchToProps)(Navbar));
  

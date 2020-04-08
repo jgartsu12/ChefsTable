@@ -1,0 +1,11 @@
+.phlog {
+    .phlog-items {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        .phlog-items__display-to-site-unAuth-user{ 
+            img {
+
+            }
+        }
+    }
+}

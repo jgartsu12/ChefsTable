@@ -11,26 +11,22 @@ export default class Phlog extends Component {
         super(props);
 
         this.state = {
-            phlogItem: {}
+            phlogItem: []
         };
-    }
 
-    componentWillMount() {
-        this.getPhlogItem();
+        this.getPhlogItem = this.getPhlogItem.bind(this);
     }
 
     getPhlogItem() {
         axios
-            .get(
-                etttte,
-            )
+            .get('http://127.0.0.1:8000/phlogapi/phlog/')
             .then(response => {
                 this.setState({
                     phlogItem: response.data
                 });
             })
             .catch(error => {
-                console.log('getPhlogItem error', error);
+                console.log('getPhlogItem failed', error);
         });
     }
 

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+// import { connect } from "react-redux";
 
-// import sidebar list?
-// import PhlogEditor
+import PhlogEditor from '../phlog/phlog-editor';
 
 export default class PhlogManager extends Component {
     constructor() {
@@ -91,15 +91,24 @@ export default class PhlogManager extends Component {
     render() {
         return (
             <div className='phlog-manager'>
-                <div className='left-column'>
-                    <PhlogEditor/>
-                </div>
-
-                <div className='right-column'>
-                    <PhlogSidebarList/>
+                <div className='centered-column'>
+                    <PhlogEditor
+                        handleNewPhlogSubmission={this.handleNewPhlogSubmission}
+                        handleEditPhlogSubmission={this.handleEditPhlogSubmission}
+                        handlePhlogSubmissionError={this.handleEditPhlogSubmission}
+                        clearPhlogToEdit={this.clearPhlogToEdit}
+                        phlogToEdit={this.phlogToEdit}
+                    />
                 </div>
             </div>
-
-        )
+        );
     }
 }
+
+// const mapStateToProps = state => {
+//     return {
+//         token: state.token
+//     };
+// }
+
+// export default connect(mapStateToProps)(PhlogManager);
