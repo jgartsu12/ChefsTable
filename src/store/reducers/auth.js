@@ -4,7 +4,8 @@ import { updateAuth } from '../redux_helpers/redux_helpers'
 const initialState = {
     token: null,
     error: null,
-    isLoading: false
+    isLoading: false,
+    loggedInStatus: false
 }
 
 const authStart = (state) => {
@@ -18,20 +19,23 @@ const authSuccess = (state, action) => {
     return updateAuth(state, {
         token: action.token,
         error: null,
-        isLoading: false
+        isLoading: true,
+        loggedInStatus: true
     });
 }
 
 const authFail = (state, action) => {
     return updateAuth(state, {
         error: action.error,
-        isLoading: false
+        // isLoading: false
     });
 }
 
 const authLogout = (state) => {
     return updateAuth(state, {
-        token: null
+        token: null,
+        loggedInStatus: false,
+        // isLoading: true
     });
 }
 

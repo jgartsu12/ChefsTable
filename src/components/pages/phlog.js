@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Header from '../headernavbarfooter/header';
-import Navbar from '../headernavbarfooter/navbar';
+// import Navbar from '../headernavbarfooter/navbar';
 import PhlogList from '../phlog/phlog-list';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 
@@ -44,7 +44,7 @@ export default class Phlog extends Component {
         return (
             <div>
                 <Header />
-                <Navbar />
+                {/* <Navbar /> */}
                 <div className='phlog'>
                     {this.phlog()}
                 </div>

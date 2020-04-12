@@ -35,7 +35,7 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { error, loading, token } = this.props;
+    const { error, isLoading, token } = this.props;
     const { username, password } = this.state;
     if (token) {
       return <Redirect to="/" />;
@@ -79,8 +79,8 @@ class LoginForm extends Component {
                   color="teal"
                   fluid
                   size="large"
-                  loading={loading}
-                  disabled={loading}
+                  loading={isLoading}
+                  disabled={isLoading}
                 >
                   Login
                 </Button>
@@ -98,7 +98,7 @@ class LoginForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    loading: state.auth.loading,
+    isLoading: state.auth.isLoading,
     error: state.auth.error,
     token: state.auth.token
   };
