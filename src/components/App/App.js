@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from '../pages/home';
-import NavContainer from '../headernavbarfooter/navcontainerMachX';
+import NavContainer from '../headernavbarfooter/navContainer';
 import AboutUs from '../pages/about-us';
 import SoupMenu from '../pages/soup-menu';
 import BreakfastMenu from '../pages/breakfast-menu';
 import LunchMenu from '../pages/lunch-menu';
 import Phlog from '../pages/phlog';
 import PhlogManager from '../pages/phlog-manager';
-import Auth from '../pages/authMACHXXXXX';
+import Auth from '../Auth/auth';
 
 
 export default class App extends Component {

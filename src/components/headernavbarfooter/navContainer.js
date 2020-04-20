@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from 'react-router';
+// import { withRouter } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
 const NavContainer = props => {
@@ -91,4 +91,4 @@ const NavContainer = props => {
     );
 };
 
-export default withRouter(NavContainer);
+export default NavContainer;

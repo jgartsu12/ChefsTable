@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import Header from '../headernavbarfooter/header';
+import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 import PhlogEditor from '../phlog/phlog-editor';
 
 export default class PhlogManager extends Component {
@@ -89,16 +91,20 @@ export default class PhlogManager extends Component {
 
     render() {
         return (
-            <div className='phlog-manager'>
-                <div className='centered-column'>
-                    <PhlogEditor
-                        handleNewPhlogSubmission={this.handleNewPhlogSubmission}
-                        handleEditPhlogSubmission={this.handleEditPhlogSubmission}
-                        handlePhlogSubmissionError={this.handleEditPhlogSubmission}
-                        clearPhlogToEdit={this.clearPhlogToEdit}
-                        phlogToEdit={this.state.phlogToEdit}
-                    />
+            <div>
+                <Header/>
+                <div className='phlog-manager'>
+                    <div className='centered-column'>
+                        <PhlogEditor
+                            handleNewPhlogSubmission={this.handleNewPhlogSubmission}
+                            handleEditPhlogSubmission={this.handleEditPhlogSubmission}
+                            handlePhlogSubmissionError={this.handleEditPhlogSubmission}
+                            clearPhlogToEdit={this.clearPhlogToEdit}
+                            phlogToEdit={this.state.phlogToEdit}
+                        />
+                    </div>
                 </div>
+                <SocialMediaFooter/>
             </div>
         );
     }

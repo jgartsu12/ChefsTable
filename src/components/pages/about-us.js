@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from '../headernavbarfooter/header';
-import Navbar from '../headernavbarfooter/navbar';
+// import Navbar from '../headernavbarfooter/navbar';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 
 import RichAndBreadImage from '../../../static/assets/images/rich-bread.jpg';
@@ -12,7 +12,7 @@ export default class AboutUs extends Component {
         return (
             <div>
             <Header />
-            <Navbar />
+            {/* <Navbar /> */}
                 <div className='about-us-page-content-wrapper'>
                     <div className='left-column'>
                         <img src={RichAndBreadImage}/>

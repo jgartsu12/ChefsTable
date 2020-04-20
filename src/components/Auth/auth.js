@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
-// import Header from '../headernavbarfooter/header';
-// import Nav from '../Auth/NavMachXX';
-import LoginForm from '../Auth/loginMachXXX';
-// import SignupForm from '../Auth/SignupFormMachX';
+import LoginForm from '../Auth/loginForm';
 import LoginBackGroundImg from '../../../static/assets/images/table-background-image.jpg'
 
 export default class Auth extends Component {

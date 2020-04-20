@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 // import thunk from 'redux-thunk';
 
 import './styles/main/main.scss';
-import App from './components/App/AppMachIII';
+import App from './components/App/App';
 // import reducers from './store/reducers/auth';
 
 // const composeEnhances = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

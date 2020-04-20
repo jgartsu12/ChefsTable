@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 
-// import PhlogEditor from '../phlog/phlog-editor';
-
 export default class PhlogList extends Component {
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //     displayEditMode: false
-        // }
     }
 
     render() {

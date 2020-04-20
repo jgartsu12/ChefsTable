@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from '../headernavbarfooter/header';
-import Navbar from '../headernavbarfooter/navbar';
+// import Navbar from '../headernavbarfooter/navbar';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 
 import StoreFrontImage from '../../../static/assets/images/restaurant-bldg-image.jpg';
@@ -13,7 +13,7 @@ export default class Home extends Component {
         return (
             <div>
                 <Header />
-                <Navbar />
+                {/* <Navbar /> */}
                 <div className='home-page-content-wrapper'>
                     <div className='left-column'>
                         <img src={StoreFrontImage}/>

@@ -16,17 +16,19 @@
             border-radius: 5px;
             object-fit: contain;
             position: relative;
-            right: 21px;
+            width: 1000px;
+            top: 500px;
+            left: 145px;
         }
     }
 
     .right-column {
         display: flex;
         position: relative;
-        left: -50px;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        padding: 0px;
+        padding: 10px;
+        right: 768px;
     }
 }

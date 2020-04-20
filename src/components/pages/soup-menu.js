@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Header from '../headernavbarfooter/header';
-import Navbar from '../headernavbarfooter/navbar';
+// import Navbar from '../headernavbarfooter/navbar';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 import Soups from './SoupListItems';
 import MenuTitle from '../headernavbarfooter/menuTitle';
@@ -45,7 +45,7 @@ export default class Soup extends Component {
        return (
            <div>
                 <Header />
-                <Navbar />
+                {/* <Navbar /> */}
                 <MenuTitle className='soup-menu-title' title='Soups Menu'/>
                 <div className='menu'>
                     {this.soups()}
