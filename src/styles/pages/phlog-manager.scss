@@ -1,10 +1,64 @@
 .phlog-manager {
     display: grid;
-    grid-gap: 21px;
-    grid-template-columns: 1fr;
-    padding: 42px;
+    // grid-gap: 21px;
+    grid-template-columns: 3fr 1fr;
+    // padding: 42px;
 
-    .centered-column {
+    .left-column {
         background-color: #f6f6f6;
+
+        .phlog-editor-wrapper {
+            display: grid;
+            grid-gap: 21px;
+            grid-template-columns: 1fr;
+            padding: 42px;
+            
+                .two-column {
+                    display: grid;
+                    grid-gap: 21px;
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .image-uploaders {
+                display: grid;
+                grid-gap: 21px;
+                grid-template-columns: 600px;
+                justify-content: center;
+            }
+        }
+    }
+
+    .right-column {
+
+        .phlog-editor-sidebar-wrapper {
+            background-color: #42454a;
+
+            .phlog-item-img {
+                padding: 21px;
+                
+                .phlog-items_display-to-site-Admin {
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .actions {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap: 15px;
+
+                    .action-icon {
+                        // cursor: pointer;
+                        color: $offwhite;
+                        font-size: 1.5em;
+                        transition: 0.5s ease-in-out;
+              
+                        &:hover {
+                          color: $warning;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

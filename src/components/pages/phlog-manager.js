@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from '../headernavbarfooter/header';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 import PhlogEditor from '../phlog/phlog-editor';
+import PhlogEditorSidebarList from '../phlog/phlog-editor-sidebar';
 
 export default class PhlogManager extends Component {
     constructor() {
@@ -101,6 +102,14 @@ export default class PhlogManager extends Component {
                             handlePhlogSubmissionError={this.handleEditPhlogSubmission}
                             clearPhlogToEdit={this.clearPhlogToEdit}
                             phlogToEdit={this.state.phlogToEdit}
+                        />
+                    </div>
+
+                    <div className='right-column'>
+                        <PhlogEditorSidebarList
+                            handleDeleteClick={this.handleDeleteClick}
+                            data={this.state.phlogItems}
+                            handleEditClick={this.handleEditClick}
                         />
                     </div>
                 </div>

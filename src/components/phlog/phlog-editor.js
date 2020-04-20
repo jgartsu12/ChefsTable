@@ -144,31 +144,49 @@ class PhlogEditor extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit} className='phlog-editor-wrapper'>
-                <div className='one-column'>
-                    <div className='image-uploaders'>
-                        {this.props.editMode && this.props.phlog_image_url ? (
-                            <div className='phlog-manager'>
-                                <img src={this.props.phlog.phlog_image_url} />
-                            
-                            <div className='remove-image-link'>
-                                <a onClick={() => this.deleteImage('phlog_image')}>
-                                    Remove Photos
-                                </a>
-                            </div>
+                <div className='two-column'>
+                    <input
+                        type='text'
+                        name='position'
+                        placeholder='Position'
+                        value={this.state.position}
+                        onChange={this.handleChange}
+                    />
+
+                    <select
+                        name='phlog status'
+                        value={this.state.phlog_status}
+                        onChange={this.handleChange}
+                        className='select-status-element'
+                    >
+                        <option value='Published'>Published</option>
+                        <option value='Draft'>Draft</option>
+                    </select>
+                </div>
+
+                <div className='image-uploaders'>
+                    {this.props.editMode && this.props.phlog_image_url ? (
+                        <div className='phlog-manager'>
+                            <img src={this.props.phlog.phlog_image_url} />
+                        
+                        <div className='remove-image-link'>
+                            <a onClick={() => this.deleteImage('phlog_image')}>
+                                Remove Photos
+                            </a>
                         </div>
-                    ) : (
-                       <DropzoneComponent
-                            ref={this.phlogImageRef}
-                            config={this.componentConfig()}
-                            djsConfig={this.djsConfig()}
-                            eventHandlers={this.handlePhlogImageDrop()}
-                        >
-                            <div className='phlog-msg'>Phlog Photo</div>
-                        </DropzoneComponent>
-                    )}
+                    </div>
+                ) : (
+                    <DropzoneComponent
+                        ref={this.phlogImageRef}
+                        config={this.componentConfig()}
+                        djsConfig={this.djsConfig()}
+                        eventHandlers={this.handlePhlogImageDrop()}
+                    >
+                        <div className='phlog-msg'>Phlog Photo</div>
+                    </DropzoneComponent>
+                )}
                 </div>
                     <button className='btn' type='submit'>Save</button>
-                </div>
             </form>
         );
     }

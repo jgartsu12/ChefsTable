@@ -1,10 +1,19 @@
 .phlog {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     .phlog-items {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        .phlog-items__display-to-site-unAuth-user{ 
-            img {
+        // display: grid;
+        // grid-template-columns: 1fr 1fr 1fr;
+        // padding-top: 110px;
 
+        .phlog-items__display-to-site-unAuth-user {  
+            position: relative;
+            margin-top: 100px;
+
+            img {
+                width: 100%;
+                height: 400px;
+                margin-top: -28px;
             }
         }
     }

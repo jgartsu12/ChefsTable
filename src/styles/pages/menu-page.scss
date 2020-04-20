@@ -45,19 +45,22 @@
         justify-items: center;
         align-items: center;
         position: absolute;
+        border-radius: 86px;
     }
 }
 
 .menu-items__back {
     height: 314px;
     width: 240px;
-    background-color: #333;
+    background-color:#ededed; ;
     opacity: 30px;
     position: relative;
     display: grid;
     grid-template-rows: 30px [name-s name-e] 30px [description-s description-e] 30px;
     grid-template-columns: 30px [s] 1fr [e] 30px;
     row-gap: 10px;
+    padding: 5px;
+    border-radius: 15px;
 
     & > * {
         grid-column: s/e;
@@ -67,14 +70,20 @@
         grid-row: name-s/name-e;
         color: #000;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        font-size: 20px;
+        font-size: 30px;
         font-weight: 600;
+        width: -25px;
+        text-align: center;
+        padding: -6px;
     }
 
     &__description {
         grid-row: description-s/description-e;
-        font-size: 15px;
+        font-size: 25px;
         color: #000;
         font-weight: 400;
+        align-self: center;
+        text-align: center;
+        margin-top: 240px;
     }
 }
