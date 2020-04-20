@@ -5,7 +5,7 @@ const initialState = {
     token: null,
     error: null,
     isLoading: false,
-    loggedInStatus: false
+    // loggedInStatus: false
 }
 
 const authStart = (state) => {
@@ -20,7 +20,7 @@ const authSuccess = (state, action) => {
         token: action.token,
         error: null,
         isLoading: true,
-        loggedInStatus: true
+        // loggedInStatus: true
     });
 }
 
@@ -34,7 +34,7 @@ const authFail = (state, action) => {
 const authLogout = (state) => {
     return updateAuth(state, {
         token: null,
-        loggedInStatus: false,
+        // loggedInStatus: false,
         // isLoading: true
     });
 }

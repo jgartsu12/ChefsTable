@@ -1,0 +1,33 @@
+.auth-page {
+    display: grid;
+    grid-template-columns: 0fr 1fr 0fr;
+    height: calc(100vh - 84px);
+  
+    .auth-background-img {
+      background-size: cover;
+    }
+  
+    .center-column {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $offwhite;
+  
+      .auth-form-wrapper {
+        @include input-element();
+        @include base-grid();
+        grid-gap: 21px;
+        padding: 42px;
+  
+        .form-content {
+          display: flex;
+  
+          svg {
+            font-size: 2em;
+            color: $teal;
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+  }

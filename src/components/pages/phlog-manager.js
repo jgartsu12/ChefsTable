@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import { connect } from "react-redux";
 
 import PhlogEditor from '../phlog/phlog-editor';
 
@@ -10,7 +9,7 @@ export default class PhlogManager extends Component {
 
         this.state = {
             phlogItems: [],
-            photoToEdit: {}
+            phlogToEdit: {}
         };
 
         this.handleNewPhlogSubmission = this.handleNewPhlogSubmission.bind(this);
@@ -97,7 +96,7 @@ export default class PhlogManager extends Component {
                         handleEditPhlogSubmission={this.handleEditPhlogSubmission}
                         handlePhlogSubmissionError={this.handleEditPhlogSubmission}
                         clearPhlogToEdit={this.clearPhlogToEdit}
-                        phlogToEdit={this.phlogToEdit}
+                        phlogToEdit={this.state.phlogToEdit}
                     />
                 </div>
             </div>
@@ -105,10 +104,3 @@ export default class PhlogManager extends Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         token: state.token
-//     };
-// }
-
-// export default connect(mapStateToProps)(PhlogManager);

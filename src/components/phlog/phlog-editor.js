@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { connect } from "react-redux";
 import DropzoneComponent from 'react-dropzone-component';
 
 import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
@@ -32,12 +31,6 @@ class PhlogEditor extends Component {
 
     deleteImage(event) {
         event.preventDefault();
-        axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-        axios.defaults.xsrfCookieName = "csrftoken";
-        axios.defaults.headers = {
-            "Content-Type": "application/json",
-            Authorization: `Token ${this.props.token}`
-        };
         axios
             .delete(
                 `http://127.0.0.1:8000/phlogapi/phlog/${this.props.id}/delete`,
@@ -52,13 +45,14 @@ class PhlogEditor extends Component {
     }
 
     componentDidUpdate() {
-        if (Object.keys(this.props.editMode).length > 0) {
+        if (Object.keys(this.props.phlogToEdit).length > 0) {
+            // debugger;
             const {
                 id,
                 phlog_image,
                 phlog_status,
                 position
-            } = this.props.editMode;
+            } = this.props.phlogToEdit;
 
             this.props.clearPhlogsToEdit();
 
@@ -180,10 +174,4 @@ class PhlogEditor extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        token: state.token
-    };
-}
-
-export default connect(mapStateToProps)(PhlogEditor);
+export default PhlogEditor;

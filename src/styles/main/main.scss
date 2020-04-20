@@ -1,3 +1,5 @@
+@import "../main/variables.scss";
+@import "../helpers/mixins.scss";
 @import "./app.scss";
 @import "../pages/about-page.scss";
 @import "../pages/home-pages.scss";
@@ -12,3 +14,6 @@
 @import "../helpers/textarea-containers/paragraph-container.scss";
 @import "./menu-title.scss";
 @import "../headernavbarfooter/social-media-footer.scss";
+@import "../auth/auth.scss";
+@import "../headernavbarfooter/navcontainer.scss"
+

@@ -1,8 +1,10 @@
 import React from "react";
-import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import axios from "axios";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";
+
+// import axiosInstance from '../../helpers/auth/axiosHelper';
 
 const Navigate = props => {
     const dynamicLink = (route, linkText) => {
@@ -14,21 +16,7 @@ const Navigate = props => {
             </div>
         );
     };
-
-    const handleSignOut = () => {
-        axios
-            .delete('http://127.0.0.1:8000/rest-auth/login/', { withCredentials: true })
-            .then(response => {
-                if (response.status === 200) {
-                    props.history.push('/');
-                    props.handleSuccessfulLogout();
-                }
-                return response.data;
-            })
-            .catch(error => {
-                console.log('Sign out error', error);
-        });
-    }
+   
 
     return (
         <div className='nav-wrapper'>
@@ -99,8 +87,8 @@ const Navigate = props => {
             <div className='sign-out-btn'>
                 LOG OUT
                 {props.loggedInStatus === 'LOGGED_IN' ? (
-                    <a onClick={handleSignOut}>
-                        <FontAwesomeIcon icon="sign-out-alt" />
+                    <a onClick={this.props.handleLogout}>
+                        <i className="fas fa-sign-out-alt"></i>
                     </a>
                 ) : null}
             </div>

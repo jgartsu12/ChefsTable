@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import axiosInstance from "../../helpers/auth/axiosHelper";
 
 // import * as actions from '../../store/actions/auth';
 // import history from '../../history';
@@ -12,9 +13,10 @@ import SoupMenu from '../pages/soup-menu';
 import BreakfastMenu from '../pages/breakfast-menu';
 import LunchMenu from '../pages/lunch-menu';
 import Phlog from '../pages/phlog';
-import PhlogManager from '../pages/phlog-manager'
-import LoginForm from '../Auth/login-form';
-import SignUpForm from '../Auth/signup-form';
+import PhlogManager from '../pages/phlog-manager';
+import Auth from '../pages/auth';
+// import LoginForm from '../Auth/login-form';
+// import SignUpForm from '../Auth/signup-form';
 // import AdminRoute from '../Auth/AdminRoute';
 
 export default class App extends Component {
@@ -22,12 +24,17 @@ export default class App extends Component {
         super(props);
 
         this.state = {
-            loggedInStatus: 'NOT_LOGGED_IN'
+            username: username,
+            password: password,
+            loggedInStatus: 'NOT_LOGGED_IN',
+            loggedIn: localStorage.getItem('token') ? true : false
         };
 
         this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
         this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
         this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
+
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
     handleSuccessfulLogin() {
@@ -48,32 +55,86 @@ export default class App extends Component {
         });
     }
 
-    checkLoginStatus() {
-        return axios
-            .get("http://127.0.0.1:8000/rest-auth/login/", {
-                withCredentials: true
-            })
-            .then(response => {
-                const loggedInWithToken = response.data.key;
-                // console.log(loggedInWithToken);
-                const loggedInStatus = this.state.loggedInStatus;
+    async handleLogout() {
+        try {
+            const response = await axiosInstance.post('/rest-auth/logout/', {
+                'token': localStorage.getItem('token')
+            });
+            localStorage.removeItem('token');
+            axiosInstance.defaults.headers['Authorization'] = null;
+            return response;
+        }
+        catch(err) {
+            console.log('handleLogout error', err);
+        }
+    };
 
-                if (loggedInWithToken && loggedInStatus === 'LOGGED_IN') {
-                    return loggedInWithToken;
-                } else if (loggedInWithToken && loggedInStatus === 'NOT_LOGGED_IN') {
-                    this.setState({
-                        loggedInStatus: 'LOGGED_IN'
-                    });
-                } else if (!loggedInWithToken && loggedInStatus === 'LOGGED_IN') {
-                    this.setState({
-                        loggedInStatus: 'NOT_LOGGED_IN'
-                    });
-                }
-            })
-            .catch(error => {
-                console.log('Error', error);
-        });
+    checkLoginStatus() {
+        if (this.state.)
     }
+
+    // checkLoginStatus() {
+    //     event.preventDefault();
+    //     axiosInstance.post('/rest-auth/login/', {
+    //         username: this.state.username,
+    //         password: this.state.password
+    //     }).then(response => {
+    //         const token = axiosInstance.headers['Authorization'] = 'Token ' + response.data.key;
+    //         console.log(token);
+    //         const loggedInStatus = this.state.loggedInStatus;
+    //         if (token && loggedInStatus === 'LOGGED_IN') {
+    //             return token;
+    //         } else if (token && loggedInStatus === 'NOT_LOGGED_IN') {
+    //             this.setState({
+    //                 loggedInStatus: 'LOGGED_IN'
+    //             });
+    //         } else if (!token && loggedInStatus === 'LOGGED_IN') {
+    //             this.setState({
+    //                 loggedInStatus: 'NOT_LOGGED_IN'
+    //             });
+    //         }
+    //         })
+    //         .catch(error => {
+    //             console.log('Error with checkLoginStatus', error);
+    //     });
+    // }
+    
+
+    // checkLoginStatus() {
+    //     axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.token}`;
+    //     axios.defaults.headers.post["Content-Type"] = "application/json";
+    //     // event.preventDefault();
+    //     // axios.defaults.headers = {
+    //     //     "Content-Type": "application/json",
+    //     //     Authorization: `Token ${this.props.token}`
+    //     // }
+    //     return axios
+    //         .post("http://127.0.0.1:8000/rest-auth/login/"
+    //             // , { withCredentials: true}
+    //         , {isAuthenticated: true}
+    //         )
+    //         .then(response => {
+    //             const token = response.data.key;
+            
+    //             // console.log(loggedInWithToken);
+    //             const loggedInStatus = this.state.loggedInStatus;
+
+    //             if (token && loggedInStatus === 'LOGGED_IN') {
+    //                 return token;
+    //             } else if (token && loggedInStatus === 'NOT_LOGGED_IN') {
+    //                 this.setState({
+    //                     loggedInStatus: 'LOGGED_IN'
+    //                 });
+    //             } else if (!token && loggedInStatus === 'LOGGED_IN') {
+    //                 this.setState({
+    //                     loggedInStatus: 'NOT_LOGGED_IN'
+    //                 });
+    //             }
+    //         })
+    //         .catch(error => {
+    //             console.log('Error', error);
+    //     });
+    // }
 
     componentDidMount() {
         this.checkLoginStatus();
@@ -97,6 +158,7 @@ export default class App extends Component {
                         <Navigate 
                             loggedInStatus={this.state.loggedInStatus}
                             handleSuccessfulLogout={this.state.handleSuccessfulLogout}
+                            handleLogout={this.state.handleLogout}
                         />
 
                         <Switch>
@@ -116,9 +178,9 @@ export default class App extends Component {
                                 render={props => <Phlog {...props}/>} />
 
                             <Route 
-                                path='/login'
+                                path='/auth'
                                 render={props => (
-                                    <LoginForm
+                                    <Auth
                                         {...props}
                                         handleSuccessfulLogin={this.handleSuccessfulLogin}
                                         handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
@@ -131,7 +193,7 @@ export default class App extends Component {
                                 : null
                             }
 
-                            <Route exact path='/signup' component={SignUpForm} />
+                            {/* <Route exact path='/signup' component={SignUpForm} /> */}
                         </Switch>
                     </div>
                 </Router>
