@@ -15,7 +15,7 @@ class PhlogEditor extends Component {
             phlog_image: '',
             editMode: false,
             position: '',
-            apiUrl: 'http://127.0.0.1:8000/phlogapi/phlog/',
+            apiUrl: 'http://127.0.0.1:8000/phlogapi/phlog/create/',
             apiAction: 'post'
         };
         
@@ -46,7 +46,6 @@ class PhlogEditor extends Component {
 
     componentDidUpdate() {
         if (Object.keys(this.props.phlogToEdit).length > 0) {
-            // debugger;
             const {
                 id,
                 phlog_image,
@@ -105,6 +104,7 @@ class PhlogEditor extends Component {
 
         return formData;
     }
+    
 
     handleChange(event) {
         this.setState({
@@ -120,26 +120,36 @@ class PhlogEditor extends Component {
             withCredentials: true
         })
         .then(response => {
-            if (this.state.phlog_image) {
-                this.phlogImageRef.current.dropzone.removeAllFiles();
+
+            if (this.state.editMode) {
+                this.props.handlePhlogSubmission();
+            } else {
+                this.props.handleNewPhlogSubmission(response.data);
+                // debugger;phlogp
+                // console.log(response.data)
             }
+            // if (this.state.phlog_image) {
+            //     this.phlogImageRef.current.dropzone.removeAllFiles();
+            // }
 
             this.setState({
                 phlog_status: '',
-                phlog_image: ''
+                phlog_image: '',
+                position: '',
+                editMode: false,
+                apiUrl:'http://127.0.0.1:8000/phlogapi/phlog/create/', 
+                apiAction: 'post'
             });
 
-            if (this.props.editMode) {
-                this.props.handleFormSubmission(response.data);
-            } else {
-                this.props.handleSuccessfulFormSubmission(response.data);
-            }
+            [this.phlogImageRef].forEach(ref => {
+                ref.current.dropzone.removeAllFiles();
+            });
         })
         .catch(error => {
-            console.log('handleSubmit for phlog error', error);
+            console.log('handleSubmit phlogEditor error', error);
         });
 
-     event.preventDefault();
+       event.preventDefault();
     }
 
     render() {
@@ -160,15 +170,15 @@ class PhlogEditor extends Component {
                         onChange={this.handleChange}
                         className='select-element'
                     >
-                        <option value='Published'>Published</option>
                         <option value='Draft'>Draft</option>
+                        <option value='Published'>Published</option>
                     </select>
                 </div>
 
                 <div className='image-uploaders'>
-                    {this.props.editMode && this.props.phlog_image_url ? (
+                    {this.state.editMode && this.state.phlog_image_url ? (
                         <div className='phlog-manager-image-wrapper'>
-                            <img src={this.props.phlog.phlog_image_url} />
+                            <img src={this.state.state.phlog_image_url} />
                         
                         <div className='remove-image-link'>
                             <a onClick={() => this.deleteImage('phlog_image')}>

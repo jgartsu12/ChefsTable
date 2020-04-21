@@ -138,7 +138,7 @@ export default class App extends Component {
                                 render={props => 
                                     <Auth
                                         {...props}
-                                        // loggedIn={this.state.loggedIn}
+                                        loggedIn={this.state.loggedIn}
                                         handleLogin={this.handleLogin}
                                         displayForm={this.displayForm}
                                         // handleSuccessfulLoginStatus={this.handleSuccessfulLoginStatus}

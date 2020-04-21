@@ -3,11 +3,11 @@ import axios from "axios";
 
 import Header from '../headernavbarfooter/header';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
-import PhlogEditor from '../phlog/phlog-editor';
+import PhlogEditor from '../phlog/phlog-editorMach2';
 import PhlogEditorSidebarList from '../phlog/phlog-editor-sidebar';
 
 export default class PhlogManager extends Component {
-    constructor() {
+    constructor(props) {
         super();
 
         this.state = {
@@ -95,15 +95,15 @@ export default class PhlogManager extends Component {
             <div>
                 <Header/>
                 <div className='phlog-manager'>
-                    <div className='centered-column'>
+                    {/* <div className='centered-column'> */}
                         <PhlogEditor
                             handleNewPhlogSubmission={this.handleNewPhlogSubmission}
                             handleEditPhlogSubmission={this.handleEditPhlogSubmission}
-                            handlePhlogSubmissionError={this.handleEditPhlogSubmission}
+                            handlePhlogSubmissionError={this.handlePhlogSubmissionError}
                             clearPhlogToEdit={this.clearPhlogToEdit}
                             phlogToEdit={this.state.phlogToEdit}
                         />
-                    </div>
+                    {/* </div> */}
 
                     <div className='right-column'>
                         <PhlogEditorSidebarList
