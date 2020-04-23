@@ -18,14 +18,14 @@ class PhlogEditor extends Component {
             apiUrl: 'http://127.0.0.1:8000/phlogapi/phlog/create/',
             apiAction: 'post'
         };
-        
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.componentConfig = this.componentConfig.bind(this);
         this.djsConfig = this.djsConfig.bind(this);
         this.handlePhlogImageDrop = this.handlePhlogImageDrop.bind(this);
         this.deleteImage = this.deleteImage.bind(this);
-        
+
         this.phlogImageRef = React.createRef();
     }
 
@@ -33,7 +33,7 @@ class PhlogEditor extends Component {
         event.preventDefault();
         axios
             .delete(
-                `http://127.0.0.1:8000/phlogapi/phlog/${this.props.id}/delete/`,
+                `http://127.0.0.1:8000/phlogapi/phlog/${this.props.id}/delete`,
                 { withCredentials: true }
             )
             .then(response => {
@@ -61,9 +61,10 @@ class PhlogEditor extends Component {
                 phlog_status: phlog_status || '',
                 position: position || '',
                 editMode: true,
-                apiUrl: `http://127.0.0.1:8000/phlogapi/phlog/${this.props.id}/update/`,
+                apiUrl: `http://127.0.0.1:8000/phlogapi/phlog/${this.props.id}/update`,
                 apiAction: 'patch'
             });
+            
         } 
     }
 
@@ -81,7 +82,7 @@ class PhlogEditor extends Component {
           postUrl: "https://httpbin.org/post"
         };
     }
-    
+
     djsConfig() {
         return {
           addRemoveLinks: true,
@@ -104,14 +105,13 @@ class PhlogEditor extends Component {
 
         return formData;
     }
-    
+
 
     handleChange(event) {
         this.setState({
           [event.target.name]: event.target.value
         });
     }
-
 
     handleSubmit(event) {
         axios({
@@ -126,7 +126,7 @@ class PhlogEditor extends Component {
                 this.props.handlePhlogSubmission();
             } else {
                 this.props.handleNewPhlogSubmission(response.data);
-                
+
             }
 
             this.setState({
@@ -134,7 +134,7 @@ class PhlogEditor extends Component {
                 phlog_image: '',
                 position: '',
                 editMode: false,
-                apiUrl:'http://127.0.0.1:8000/phlogapi/phlog/create/', 
+                apiUrl:'127.0.0.1:8000/phlogapi/phlog/create/', 
                 apiAction: 'post'
             });
 
@@ -176,7 +176,7 @@ class PhlogEditor extends Component {
                     {this.state.editMode && this.state.phlog_image ? (
                         <div className='phlog-manager-image-wrapper'>
                             <img src={this.state.phlog_image} />
-                        
+
                         <div className='remove-image-link'>
                             <a onClick={() => this.deleteImage('phlog_image')}>
                                 Remove Photos
