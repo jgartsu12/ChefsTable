@@ -33,7 +33,7 @@ class PhlogEditor extends Component {
         event.preventDefault();
         axios
             .delete(
-                `http://127.0.0.1:8000/phlogapi/phlog/${this.props.id}/delete`,
+                `http://127.0.0.1:8000/phlogapi/phlog/${this.props.id}/delete/`,
                 { withCredentials: true }
             )
             .then(response => {
@@ -61,7 +61,7 @@ class PhlogEditor extends Component {
                 phlog_status: phlog_status || '',
                 position: position || '',
                 editMode: true,
-                apiUrl: `http://127.0.0.1:8000/phlogapi/phlog/${this.props.id}/update`,
+                apiUrl: `http://127.0.0.1:8000/phlogapi/phlog/${this.props.id}/update/`,
                 apiAction: 'patch'
             });
         } 
@@ -69,7 +69,7 @@ class PhlogEditor extends Component {
 
     handlePhlogImageDrop() {
         return {
-            addedfile: file => this.setState({ phlog_image_url: file })
+            addedfile: file => this.setState({ phlog_image: file })
         };
     }
 
@@ -112,6 +112,7 @@ class PhlogEditor extends Component {
         });
     }
 
+
     handleSubmit(event) {
         axios({
             method: this.state.apiAction,
@@ -125,12 +126,8 @@ class PhlogEditor extends Component {
                 this.props.handlePhlogSubmission();
             } else {
                 this.props.handleNewPhlogSubmission(response.data);
-                // debugger;phlogp
-                // console.log(response.data)
+                
             }
-            // if (this.state.phlog_image) {
-            //     this.phlogImageRef.current.dropzone.removeAllFiles();
-            // }
 
             this.setState({
                 phlog_status: '',
@@ -176,9 +173,9 @@ class PhlogEditor extends Component {
                 </div>
 
                 <div className='image-uploaders'>
-                    {this.state.editMode && this.state.phlog_image_url ? (
+                    {this.state.editMode && this.state.phlog_image ? (
                         <div className='phlog-manager-image-wrapper'>
-                            <img src={this.state.state.phlog_image_url} />
+                            <img src={this.state.phlog_image} />
                         
                         <div className='remove-image-link'>
                             <a onClick={() => this.deleteImage('phlog_image')}>

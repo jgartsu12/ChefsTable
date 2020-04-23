@@ -7,7 +7,7 @@ import PhlogEditor from '../phlog/phlog-editorMach2';
 import PhlogEditorSidebarList from '../phlog/phlog-editor-sidebar';
 
 export default class PhlogManager extends Component {
-    constructor(props) {
+    constructor() {
         super();
 
         this.state = {
