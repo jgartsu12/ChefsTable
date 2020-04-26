@@ -97,8 +97,8 @@ export default class PhlogManager extends Component {
                 <div className='phlog-manager'>
                     {/* <div className='centered-column'> */}
                         <PhlogEditor
-                            handleNewPhlogSubmission={this.handleNewPhlogSubmission}
-                            handleEditPhlogSubmission={this.handleEditPhlogSubmission}
+                            handleNewPhlogSubmission={this.state.handleNewPhlogSubmission}
+                            handleEditPhlogSubmission={this.state.handleEditPhlogSubmission}
                             handlePhlogSubmissionError={this.handlePhlogSubmissionError}
                             clearPhlogToEdit={this.clearPhlogToEdit}
                             phlogToEdit={this.state.phlogToEdit}

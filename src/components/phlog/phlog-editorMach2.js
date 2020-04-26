@@ -5,6 +5,7 @@ import DropzoneComponent from 'react-dropzone-component';
 import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
 import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
 
+
 class PhlogEditor extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +13,7 @@ class PhlogEditor extends Component {
         this.state = {
             id: '',
             phlog_status: '',
-            phlog_image: '',
+            phlog_image_url : '',
             editMode: false,
             position: '',
             apiUrl: 'http://127.0.0.1:8000/phlogapi/phlog/create/',
@@ -33,7 +34,7 @@ class PhlogEditor extends Component {
         event.preventDefault();
         axios
             .delete(
-                `http://127.0.0.1:8000/phlogapi/phlog/${this.props.id}/delete`,
+                `http://127.0.0.1:8000/phlogapi/phlog/${this.state.id}/delete/`,
                 { withCredentials: true }
             )
             .then(response => {
@@ -48,20 +49,20 @@ class PhlogEditor extends Component {
         if (Object.keys(this.props.phlogToEdit).length > 0) {
             const {
                 id,
-                phlog_image,
+                phlog_image_url,
                 phlog_status,
                 position
             } = this.props.phlogToEdit;
 
-            this.props.clearPhlogsToEdit();
+            this.props.clearPhlogToEdit();
 
             this.setState({
                 id: id,
-                phlog_image: phlog_image || '',
+                phlog_image_url: phlog_image_url || '',
                 phlog_status: phlog_status || '',
                 position: position || '',
                 editMode: true,
-                apiUrl: `http://127.0.0.1:8000/phlogapi/phlog/${this.props.id}/update`,
+                apiUrl: `http://127.0.0.1:8000/phlogapi/`,
                 apiAction: 'patch'
             });
             
@@ -69,11 +70,11 @@ class PhlogEditor extends Component {
     }
 
     handlePhlogImageDrop() {
+        // console.log(this.state);
         return {
-            addedfile: file => this.setState({ phlog_image: file })
+            addedfile: file => this.setState({ phlog_image_url: file })
         };
-    }
-
+    };
 
     componentConfig() {
         return {
@@ -86,7 +87,7 @@ class PhlogEditor extends Component {
     djsConfig() {
         return {
           addRemoveLinks: true,
-          maxFiles: 3
+          maxFiles: 1
         };
     }
 
@@ -96,13 +97,13 @@ class PhlogEditor extends Component {
         formData.append('phlog[phlog_status]', this.state.phlog_status);
         formData.append('phlog[position]', this.state.position);
 
-        if (this.state.phlog_image) {
+        if (this.state.phlog_image_url) {
             formData.append(
-                'phlog[phlog_image]',
-                this.state.phlog_image
+                'phlog[phlog_image_url]',
+                this.state.phlog_image_url
             );
         }
-
+        console.log(formData);
         return formData;
     }
 
@@ -113,28 +114,40 @@ class PhlogEditor extends Component {
         });
     }
 
+
     handleSubmit(event) {
+        // console.log(this.state);
         axios({
+            headers: {'content-type':'multipart/form-data'},
             method: this.state.apiAction,
             url: this.state.apiUrl,
             data: this.buildForm(),
-            withCredentials: true
+            withCredentials: true,
+            xsrfHeaderName: 'X-CSRFTOKEN',
+            xsrfCookieName: 'crsftoken',
+            // headers: {
+            //     'Content-type': 'application/json',
+            //     Authorization: `JWT ${localStorage.getItem('token')}` ,
+            // },
+            // body: JSON.stringify(data)
+
         })
         .then(response => {
-
+            console.log(response);
+            // localStorage.setItem('token', json.token);
             if (this.state.editMode) {
-                this.props.handlePhlogSubmission();
+                this.props.handleEditPhlogSubmission();
             } else {
-                this.props.handleNewPhlogSubmission(response.data);
-
+                this.props.handleNewPhlogSubmission(response.data.phlogItem);
+                // debugger;
             }
 
             this.setState({
                 phlog_status: '',
-                phlog_image: '',
+                phlog_image_url: '',
                 position: '',
                 editMode: false,
-                apiUrl:'127.0.0.1:8000/phlogapi/phlog/create/', 
+                apiUrl:'http://127.0.0.1:8000/phlogapi/phlog/', 
                 apiAction: 'post'
             });
 
@@ -173,12 +186,12 @@ class PhlogEditor extends Component {
                 </div>
 
                 <div className='image-uploaders'>
-                    {this.state.editMode && this.state.phlog_image ? (
+                    {this.state.phlog_image_url && this.state.editMode ? (
                         <div className='phlog-manager-image-wrapper'>
-                            <img src={this.state.phlog_image} />
+                            <img src={this.state.phlog_image_url} />
 
                         <div className='remove-image-link'>
-                            <a onClick={() => this.deleteImage('phlog_image')}>
+                            <a onClick={() => this.deleteImage('phlog_image_url')}>
                                 Remove Photos
                             </a>
                         </div>
