@@ -3,7 +3,7 @@ import axios from "axios";
 
 import Header from '../headernavbarfooter/header';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
-import PhlogEditor from '../phlog/phlog-editorMach2';
+import PhlogEditor from '../phlog/phlog-editor-mark-3';
 import PhlogEditorSidebarList from '../phlog/phlog-editor-sidebar';
 
 export default class PhlogManager extends Component {
@@ -78,7 +78,7 @@ export default class PhlogManager extends Component {
           )
           .then(response => {
               this.setState({
-                  phlogItems: [...response.data]
+                  phlogItems: [...response.data.phlogItems]
               });
           })
           .catch(error => {
@@ -97,8 +97,8 @@ export default class PhlogManager extends Component {
                 <div className='phlog-manager'>
                     {/* <div className='centered-column'> */}
                         <PhlogEditor
-                            handleNewPhlogSubmission={this.state.handleNewPhlogSubmission}
-                            handleEditPhlogSubmission={this.state.handleEditPhlogSubmission}
+                            handleNewPhlogSubmission={this.handleNewPhlogSubmission}
+                            handleEditPhlogSubmission={this.handleEditPhlogSubmission}
                             handlePhlogSubmissionError={this.handlePhlogSubmissionError}
                             clearPhlogToEdit={this.clearPhlogToEdit}
                             phlogToEdit={this.state.phlogToEdit}

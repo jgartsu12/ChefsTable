@@ -28,6 +28,7 @@ class PhlogEditor extends Component {
         this.deleteImage = this.deleteImage.bind(this);
 
         this.phlogImageRef = React.createRef();
+        this.dropzone= React.createRef();
     }
 
     deleteImage(event) {
@@ -94,6 +95,7 @@ class PhlogEditor extends Component {
     buildForm() {
         let formData = new FormData();
 
+        formData.append('[phlog[id]', this.state.id);
         formData.append('phlog[phlog_status]', this.state.phlog_status);
         formData.append('phlog[position]', this.state.position);
 
@@ -103,7 +105,7 @@ class PhlogEditor extends Component {
                 this.state.phlog_image_url
             );
         }
-        console.log(formData);
+        // console.log(formData);
         return formData;
     }
 
@@ -134,20 +136,22 @@ class PhlogEditor extends Component {
         })
         .then(response => {
             console.log(response);
+            // console.log(this.props);
             // localStorage.setItem('token', json.token);
             if (this.state.editMode) {
                 this.props.handleEditPhlogSubmission();
             } else {
-                this.props.handleNewPhlogSubmission(response.data.phlogItem);
+                this.props.handleNewPhlogSubmission(response.data.phlogItems);
                 // debugger;
             }
 
             this.setState({
+                id: '',
                 phlog_status: '',
                 phlog_image_url: '',
                 position: '',
                 editMode: false,
-                apiUrl:'http://127.0.0.1:8000/phlogapi/phlog/', 
+                apiUrl:'http://127.0.0.1:8000/phlogapi/phlog/create/', 
                 apiAction: 'post'
             });
 

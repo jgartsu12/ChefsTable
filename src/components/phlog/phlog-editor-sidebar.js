@@ -2,12 +2,13 @@ import React from "react";
 
 const PhlogEditorSidebarList = props => {
     const phlogList = props.data.map(phlogItems => {
+        // console.log(phlogList);
         // debugger;
         return (
             <div key={phlogItems.id} className='phlog-item-img'>
+                {/* debugger; */}
                 <div className='phlog-items_display-to-site-Admin'>
                     <img 
-                        className='phlog-items__photos'
                         src={phlogItems.phlog_image_url}
                     />
                 </div>
