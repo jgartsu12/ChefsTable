@@ -1,75 +1,26 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { render } from 'react-dom';
+
 
 export default class PhlogEditor extends Component {
-
-  state = {
-    phlog_title: '',
-    phlog_description: '',
-    phlog_status: '',
-    phlog_image_url: null,
-    position: '',
-  };
-
-  handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value
-    })
-  };
-
-  handleImageChange = (e) => {
-    this.setState({
-      phlog_image_url: e.target.files[0]
-    })
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state);
-    let form_data = new FormData();
-    form_data.append('phlog_image_url', this.state.phlog_image_url);
-    form_data.append('title', this.state.title);
-    form_data.append('description', this.state.description);
-    form_data.append('phlog_status', this.state.phlog_status);
-    form_data.append('position', this.state.position);
-    let url = 'http://localhost:8000/phlogapi/posts/';
-    axios.post(url, form_data, {
-      headers: {
-        'content-type': 'multipart/form-data'
-      }
-    })
-        .then(res => {
-          console.log(res.data);
-        })
-        .catch(err => console.log(err))
-  };
-
+  uploadWidget() {
+    window.cloudinary.openUploadWidget(
+      {
+        cloud_name: 'chefstable',
+        upload_preset: 'jfw9oukn' },
+        function(error, result) {
+          console.log(result);
+        }
+      ); 
+  }
   render() {
     return (
-      <div className="App">
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <input type="text" placeholder='Title' id='phlog_title' value={this.state.phlog_title} onChange={this.handleChange} required/>
-          </p>
-          <p>
-            <input type="text" placeholder='Description' id='phlog_description' value={this.state.phlog_description} onChange={this.handleChange} required/>
-
-          </p>
-          <p>
-            <input type="text" placeholder='Position' id='position' value={this.state.position} onChange={this.handleChange} required/>
-
-          </p>
-          <p>
-            <input type="text" placeholder='phlog_status' id='phlog_status' value={this.state.phlog_status} onChange={this.handleChange} required/>
-
-          </p>
-          <p>
-            <input type="file"
-                   id="phlog_image_url"
-                   accept="image/png, image/jpeg"  onChange={this.handleImageChange} required/>
-          </p>
-          <input type="submit"/>
-        </form>
+      <div className='phlog-editor-wrapper'>
+        <div className='image-uploader'>
+        <button onClick={this.uploadWidget.bind(this)} className="upload-button">
+          Add Image
+        </button>
+        </div>
       </div>
     );
   }
@@ -194,5 +145,3 @@ export default class PhlogEditor extends Component {
 //         );
 //     }
 // }
-
-// export default PhlogEditor;

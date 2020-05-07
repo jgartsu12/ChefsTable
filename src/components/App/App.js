@@ -7,7 +7,7 @@ import AboutUs from '../pages/about-us';
 import SoupMenu from '../pages/soup-menu';
 import BreakfastMenu from '../pages/breakfast-menu';
 import LunchMenu from '../pages/lunch-menu';
-import Phlog from '../pages/phlog';
+import Phlog from '../phlog/phlog-markII';
 import PhlogManager from '../pages/phlog-manager';
 import Auth from '../Auth/auth';
 
