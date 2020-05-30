@@ -18,6 +18,12 @@
             position: relative;
             top: 531px;
             left: 415px;
+
+            @media screen and (max-width: 600px) {
+                top: 546px;
+                left: -51px; 
+                right: 55px;
+            }
         }
     }
 
