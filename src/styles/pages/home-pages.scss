@@ -4,29 +4,58 @@
     grid-template-columns: 1fr 1fr;
     height: calc(100vh - 84px);
 
+    // @include respond-to(handhelds) { width: 100% ;}
+    // @include respond-to(medium-screens) { width: 125px; }
+    // @include respond-to(wide-screens) { float: none; }
+
     .left-column {
         display: flex;
-        justify-content: center;
-        align-items: left;
-        flex-direction: column;
-        padding: 20px;
+        // display: grid;
+        // justify-content: space-evenly;
+        // align-items: left;
+        // flex-direction: column;
+        // padding: 20px;
+        // grid-gap: 42px;
+        margin: 15px 25px;
+        // padding-top: 100px;
+       
 
         img {
-            margin: 15px 25px;
+            // margin: 15px 25px;
             border-radius: 5px;
             object-fit: contain;
             position: relative;
-            right: 21px;
+            // width: 1000px;
+            top: 500px;
+            left: 145px;
+
+            @media screen and (max-width: 600px) {
+                // grid-template-columns: 1fr;
+                height: 170px;
+                left: 0px;
+            }
+            // @media screen and (max-width: 600px) {
+            //     grid-template-columns: 1fr;
+            //     width: 100vw;
+            // }
         }
     }
 
     .right-column {
         display: flex;
+        // display: grid;
         position: relative;
-        left: -50px;
         justify-content: center;
-        align-items: center;
+        // align-items: center;
         flex-direction: column;
-        padding: 0px;
+        padding: 10px;
+        right: 768px;
+
+        @media screen and (max-width: 600px) {
+            height: 100px;
+            right: 370px;
+            padding-top: 201px;
+            position: relative;
+        }
     }
 }

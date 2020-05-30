@@ -1,0 +1,12 @@
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('../../../static/assets/images/table-background-image.jpg');
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+
+    @include respond-to(handhelds) { width: 100% ;}
+    @include respond-to(medium-screens) { width: 125px; }
+    @include respond-to(wide-screens) { float: none; }
+}

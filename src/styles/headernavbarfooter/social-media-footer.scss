@@ -6,19 +6,24 @@
     bottom: -2088px;
     position: absolute;
     height: 60px;
-    width: 117%;
+    width: 100%;
     background-color: black;
-    // icons
+    
+    // @include respond-to(handhelds) { width: 100% ;}
+    // @include respond-to(medium-screens) { width: 125px; }
+    // @include respond-to(wide-screens) { float: none; }
+    
     .social-media-icon {
-        .icon {
+        i {
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: space-around;
             color: rgba(242,239,239,1);
-            font-size: 54;
-            height: 54;
-            width: 50;
+            
+            font-size: 54px;
+            height: 54px;
+            width: 50px;
         }
     }
     // centered at bottom 

@@ -1,25 +1,18 @@
 import React, { Component } from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faTwitterSquare, faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
-
-library.add(fab, faTwitterSquare, faFacebookSquare, faInstagramSquare);
-
 class SocialMediaFooter extends Component {
     
     render() {
         return (
             <div className='social-media-footer-wrapper'>
                 <div className='social-media-icon'>
-                    <FontAwesomeIcon icon='twitter-square'/>
+                    <i className="fab fa-facebook-square"></i>
                 </div>
                 <div className='social-media-icon'>
-                    <FontAwesomeIcon icon='facebook-square'/>
+                    <i className="fab fa-twitter-square"></i>
                 </div>
                 <div className='social-media-icon'>
-                    <FontAwesomeIcon icon='instagram-square'/>
+                    <i className="fab fa-instagram"></i>
                 </div>
             </div>
         );
