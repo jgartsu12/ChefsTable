@@ -38,7 +38,7 @@ export default class PhlogManager extends Component {
     handleDeleteClick(id) {
         axios
             .delete(
-                `http://127.0.0.1:8000/phlogapi/phlog/${id}`,
+                `http://localhost:5000/api/v1/image/${id}`,
                 { withCredentials: true }
             )
             .then(response => {
@@ -71,7 +71,7 @@ export default class PhlogManager extends Component {
 
     getPhlogItems() {
         axios
-          .get('http://127.0.0.1:8000/phlogapi/phlog',
+          .get('http://localhost:5000/api/v1/phlogs',
             {
                withCredentials: true 
             }
@@ -93,7 +93,7 @@ export default class PhlogManager extends Component {
     render() {
         return (
             <div>
-                <Header/>
+                {/* <Header/> */}
                 <div className='phlog-manager'>
                     {/* <div className='centered-column'> */}
                         <PhlogEditor

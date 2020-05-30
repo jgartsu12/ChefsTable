@@ -13,10 +13,10 @@ class PhlogEditor extends Component {
         this.state = {
             id: '',
             phlog_status: '',
-            phlog_image_url : '',
+            image_url : '',
             editMode: false,
             position: '',
-            apiUrl: 'http://127.0.0.1:8000/phlogapi/phlog/create/',
+            apiUrl: 'http://127.0.0.1:5000/api/v1/image',
             apiAction: 'post'
         };
 
@@ -151,7 +151,7 @@ class PhlogEditor extends Component {
                 phlog_image_url: '',
                 position: '',
                 editMode: false,
-                apiUrl:'http://127.0.0.1:8000/phlogapi/phlog/create/', 
+                apiUrl:'http://127.0.0.1:5000/api/v1/image', 
                 apiAction: 'post'
             });
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Header from '../headernavbarfooter/header';
+// import Header from '../headernavbarfooter/header';
 // import Navbar from '../headernavbarfooter/navbar';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 
@@ -12,7 +12,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <Header />
+                {/* <Header /> */}
                 {/* <Navbar /> */}
                 <div className='home-page-content-wrapper'>
                     <div className='left-column'>

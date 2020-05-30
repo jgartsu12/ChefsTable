@@ -8,7 +8,11 @@
     height: 60px;
     width: 100%;
     background-color: black;
-    // icons
+    
+    // @include respond-to(handhelds) { width: 100% ;}
+    // @include respond-to(medium-screens) { width: 125px; }
+    // @include respond-to(wide-screens) { float: none; }
+    
     .social-media-icon {
         i {
             display: flex;

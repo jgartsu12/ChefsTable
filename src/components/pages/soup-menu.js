@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Header from '../headernavbarfooter/header';
+// import Header from '../headernavbarfooter/header';
 // import Navbar from '../headernavbarfooter/navbar';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 import Soups from './SoupListItems';
@@ -44,7 +44,7 @@ export default class Soup extends Component {
    render() {
        return (
            <div>
-                <Header />
+                {/* <Header /> */}
                 {/* <Navbar /> */}
                 <MenuTitle className='soup-menu-title' title='Soups Menu'/>
                 <div className='menu'>

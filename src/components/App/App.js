@@ -8,7 +8,7 @@ import SoupMenu from '../pages/soup-menu';
 import BreakfastMenu from '../pages/breakfast-menu';
 import LunchMenu from '../pages/lunch-menu';
 import Phlog from '../phlog/phlog-markII';
-import PhlogManager from '../pages/phlog-manager';
+import PhlogManager from '../phlog-mark-II/PhlogManager';
 import Auth from '../Auth/auth';
 
 

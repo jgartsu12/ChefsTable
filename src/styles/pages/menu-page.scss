@@ -7,6 +7,10 @@
     // padding: 180px;
     position: absolute;
 
+    // @include respond-to(handhelds) { width: 100% ;}
+    // @include respond-to(medium-screens) { width: 125px; }
+    // @include respond-to(wide-screens) { float: none; }
+
     & > * {
         margin-right: 50px;
         justify-items: center;

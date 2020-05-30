@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Header from '../headernavbarfooter/header';
+// import Header from '../headernavbarfooter/header';
 // import Navbar from '../headernavbarfooter/navbar';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 import LunchFoods from './LunchFoodList';
@@ -43,7 +43,7 @@ export default class LunchMenu extends Component {
    render() {
        return (
            <div>
-                <Header />
+                {/* <Header /> */}
                 {/* <Navbar /> */}
                 <MenuTitle className='lunch-menu-title' title='Lunch Menu'/>
                 <div className='menu'>

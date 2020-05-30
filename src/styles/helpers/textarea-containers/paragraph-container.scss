@@ -11,6 +11,21 @@
     border-width: inherit;
     border: solid;
 
+    @media screen and (max-width: 600px) {
+            // display: flex;
+            // // justify-content: center;
+            // align-items: center;
+            // flex-direction: column;
+            width: 371px;
+            // background-color: #e6e6e6;
+            // opacity: 0.69;
+            // border-radius: 71px;
+            // border-color: #000;
+            // border-width: inherit;
+            // border: solid;
+            height: 459px;
+    }
+
     .about-paragraph-header {
         height: 300px;
         color: rgba(0,0,0,1);
@@ -20,6 +35,17 @@
         font-family: 'alfa-slab-one-regular';
         text-align: center;
         padding: 20px;
+
+        @media screen and (max-width: 600px) {
+            height: 374px;
+            // color: black;
+            // justify-content: space-between;
+            font-size: 16px;
+            // font-weight: 900;
+            // font-family: 'alfa-slab-one-regular';
+            // text-align: center;
+            // padding: 20px;
+        }
     }
 
     .about-paragraph-text {
@@ -32,6 +58,18 @@
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
         justify-content: center;
         padding: 10px;
+
+        @media screen and (max-width: 600px) {
+            height: 275px;
+            // position: absolute;
+            // color: black;
+            font-size: 16px;
+            // text-align: center;
+            margin: 5px;
+            // font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+            // justify-content: center;
+            // padding: 10px;
+        }
     }    
 }
 
@@ -50,6 +88,22 @@
     border-width: 45px;
     border: solid;
 
+    @media screen and (max-width: 600px) {
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // flex-direction: column;
+        width: 368px;
+        height: 293px;
+        margin: -14px;
+        // background-color: #e6e6e6;
+        // opacity: 0.69;
+        // border-radius: 71px;
+        // border-color: #000;
+        // border-width: 45px;
+        // border: solid;
+    }
+
     .home-paragraph-header {
         height: 300px;
         color: rgba(0,0,0,1);
@@ -59,6 +113,12 @@
         font-family: 'alfa-slab-one-regular';
         text-align: center;
         padding: 20px;
+
+        // @media screen and (min-width: 700px) {
+        //     height: 150px;
+        //     font-size: 15px;
+        //     padding: 10px;
+        // }
     }
 
     .home-paragraph-text {
@@ -70,7 +130,15 @@
         font-size: 20px;
         font-weight: 400;
         text-align: center;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+
+        @include phone;
+
+        // @media screen and (min-width: 700px) {
+        //     height: 102.5px;
+        //     margin-top: 5px;
+        //     font-size: 10px;
+        // }
     }    
     
     .home-paragraph-location {
@@ -80,7 +148,13 @@
         color: rgba(0, 0, 0, 1);
         font-size: 25px;
         text-align: center;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+
+        // @media screen and (min-width: 700px) {
+        //     height: 76px;
+        //     margin-top: 10px;
+        //     font-size: 12.5px;
+        // }
     }
 
     .home-paragraph-subtext {
@@ -92,7 +166,13 @@
         font-size: 20px;
         font-weight: 400;
         text-align: center;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+
+        // @media screen and (min-width: 700px) {
+        //     height: 40px;
+        //     margin-top: 17.5px;
+        //     font-size: 10px;
+        // }
     }
 
     .home-paragraph-hours {
@@ -103,7 +183,13 @@
         color: rgba(0, 0, 0, 1);
         font-size: 21px;
         text-align: center;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+
+        // @media screen and (min-width: 700px) {
+        //     height: 20px;
+        //     margin-top: 29px;
+        //     font-size: 10.5px;
+        // }
     }
 
     .home-paragraph-phone {
@@ -114,6 +200,12 @@
         color: rgba(0, 0, 0, 1);
         font-size: 25px;
         text-align: center;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+
+        // @media screen and (min-width: 700px) {
+        //     height: 7.5px;
+        //     margin-top: 50px;
+        //     font-size: 12.5px
+        // }
     }
 }

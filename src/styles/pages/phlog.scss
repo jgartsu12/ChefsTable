@@ -1,6 +1,11 @@
 .phlog {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+
+    // @include respond-to(handhelds) { width: 100% ;}
+    // @include respond-to(medium-screens) { width: 125px; }
+    // @include respond-to(wide-screens) { float: none; }
+
     .phlog-items {
         // display: grid;
         // grid-template-columns: 1fr 1fr 1fr;

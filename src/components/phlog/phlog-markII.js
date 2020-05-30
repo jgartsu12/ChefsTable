@@ -4,7 +4,7 @@ import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
 
 import Header from '../headernavbarfooter/header';
 // import Navbar from '../headernavbarfooter/navbar';
-import PhlogList from '../phlog/phlog-list';
+// import PhlogList from '../phlog/phlog-list';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 
 export default class Phlog extends Component {
@@ -20,6 +20,7 @@ export default class Phlog extends Component {
         axios.get('https://api.cloudinary.com/v1_1/chefstable/image/list/phlog.json')
             .then(res => {
                 console.log(res.data.resources);
+                console.log(state);
                 this.setState({
                     phlog: res.data.resources
                 });
@@ -27,6 +28,7 @@ export default class Phlog extends Component {
         );
     };
 
+    
     render() {
         return (
             <div>
@@ -65,13 +67,3 @@ export default class Phlog extends Component {
         );
     }
 }
-
-//  getPhlogItem = async() => {
-//        try {} 
-//     }
-
-//     phlog() {
-//         return this.state.phlogItem.map(item => {
-//             return <PhlogList key={item.id} item={item} />
-//         });
-//     }

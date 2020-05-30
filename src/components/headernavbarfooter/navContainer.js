@@ -2,6 +2,8 @@ import React from "react";
 // import { withRouter } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
+import Header from './header';
+
 const NavContainer = props => {
     
     const dynamicLink = (route, linkText) => {
@@ -15,7 +17,8 @@ const NavContainer = props => {
     };
 
     return (
-        <div>    
+        <div>
+            <Header />    
             <div className='navbar-wrapper'>
                 <div className='nav-link-wrapper'>
                     <NavLink exact to='/' activeClassName='nav-link-active'>

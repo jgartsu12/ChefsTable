@@ -5,6 +5,10 @@
     // padding: 42px;
     margin-top: 115px;
     background: #fff;
+    
+    // @include respond-to(handhelds) { width: 100% ;}
+    // @include respond-to(medium-screens) { width: 125px; }
+    // @include respond-to(wide-screens) { float: none; }
 
     .left-column {
         background-color: #f6f6f6;

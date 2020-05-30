@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Header from '../headernavbarfooter/header';
+// import Header from '../headernavbarfooter/header';
 // import Navbar from '../headernavbarfooter/navbar';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
 
@@ -11,7 +11,7 @@ export default class AboutUs extends Component {
     render() {
         return (
             <div>
-            <Header />
+            {/* <Header /> */}
             {/* <Navbar /> */}
                 <div className='about-us-page-content-wrapper'>
                     <div className='left-column'>
