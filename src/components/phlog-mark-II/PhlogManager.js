@@ -30,7 +30,7 @@ const PhlogManager = () => {
         const cloudinary = await axios(
             {
                 method: "post",
-                url: 'https://api.cloudinary.com/v1_1/chefstable/image/upload',
+                url: 'https://api.cloudinary.com/v1_1/chefstable',
                 data: imageFormData,
                 headers: { 'Content-Type': 'multipart/form-data' }
             }
@@ -44,8 +44,8 @@ const PhlogManager = () => {
                     title: title,
                     // genre: genre,
                     // Either http or https
-                    // image_url: cloudinary.data.url,
-                    image_url: cloudinary.data.secure_url,
+                    image_url: cloudinary.data.url,
+                    // image_url: cloudinary.data.secure_url,
                     public_id: cloudinary.data.public_id
                 },
                 headers: {

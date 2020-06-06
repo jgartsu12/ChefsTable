@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import Header from '../headernavbarfooter/header';
+// import Header from '../headernavbarfooter/header';
 import SocialMediaFooter from '../headernavbarfooter/socialMediaFooter';
-import PhlogEditor from '../phlog/phlog-editor-mark-3';
+import PhlogEditor from '../phlog/phlog-editorMach2';
 import PhlogEditorSidebarList from '../phlog/phlog-editor-sidebar';
 
 export default class PhlogManager extends Component {
@@ -71,10 +71,10 @@ export default class PhlogManager extends Component {
 
     getPhlogItems() {
         axios
-          .get('http://localhost:5000/api/v1/phlogs',
-            {
-               withCredentials: true 
-            }
+          .get('http://localhost:5000/api/v1/images',
+            // {
+            //    withCredentials: true 
+            // }
           )
           .then(response => {
               this.setState({

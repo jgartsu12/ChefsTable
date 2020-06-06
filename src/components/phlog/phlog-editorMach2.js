@@ -125,8 +125,8 @@ class PhlogEditor extends Component {
             url: this.state.apiUrl,
             data: this.buildForm(),
             withCredentials: true,
-            xsrfHeaderName: 'X-CSRFTOKEN',
-            xsrfCookieName: 'crsftoken',
+            // xsrfHeaderName: 'X-CSRFTOKEN',
+            // xsrfCookieName: 'crsftoken',
             // headers: {
             //     'Content-type': 'application/json',
             //     Authorization: `JWT ${localStorage.getItem('token')}` ,

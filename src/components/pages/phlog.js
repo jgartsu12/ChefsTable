@@ -19,7 +19,7 @@ export default class Phlog extends Component {
 
     getPhlogItem() {
         axios
-            .get('http://127.0.0.1:8000/phlogapi/phlog/')
+            .get('http://localhost:5000/api/v1/images')
             .then(response => {
                 this.setState({
                     phlogItem: response.data

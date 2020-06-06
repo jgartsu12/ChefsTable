@@ -7,7 +7,7 @@ export default class PhlogList extends Component {
     }
 
     render() {
-        const { id, phlog_image_url, phlog_status } = this.props.item;
+        const { id, image_url, phlog_status } = this.props.item;
         return (
             <div className='phlog-items'>
                 <div 
@@ -15,7 +15,7 @@ export default class PhlogList extends Component {
                     >
                        <img
                             className='phlog-items__photos'
-                            src={phlog_image_url}
+                            src={image_url}
                         />
                 </div>
             </div>
