@@ -30,9 +30,9 @@ const PhlogManager = () => {
         const cloudinary = await axios(
             {
                 method: "post",
-                url: 'https://api.cloudinary.com/v1_1/chefstable',
+                url: 'https://api.cloudinary.com/v1_1/jfw9oukn/image/upload',
                 data: imageFormData,
-                headers: { 'Content-Type': 'multipart/form-data' }
+                headers: { 'Content-Type': 'multipart/form-data' },
             }
         )
         console.log(cloudinary);
@@ -54,6 +54,7 @@ const PhlogManager = () => {
             }
         )
         setPhlogs([...phlogs, flask_database.data])
+        console.log(setPhlogs);
     } catch (err) {
       console.log(err, "addPhlog error")
     } 

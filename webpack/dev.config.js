@@ -4,6 +4,7 @@ const webpackCommon = require('./common.config');
 
 const env = require('../env');
 const proxyRules = require('../proxy/rules');
+// const proxyCors = require('../proxy/cors-proxy-server');
 
 // webpack plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin');
