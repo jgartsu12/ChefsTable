@@ -6,13 +6,19 @@ class SocialMediaFooter extends Component {
         return (
             <div className='social-media-footer-wrapper'>
                 <div className='social-media-icon'>
-                    <i className="fab fa-facebook-square"></i>
+                    <a href="https://www.facebook.com/chefstablect/">
+                        <i className="fab fa-facebook-square"></i>
+                    </a>
                 </div>
                 <div className='social-media-icon'>
-                    <i className="fab fa-twitter-square"></i>
+                    <a href="https://twitter.com/ChefsTableCT">
+                        <i className="fab fa-twitter-square"></i>
+                    </a>
                 </div>
                 <div className='social-media-icon'>
-                    <i className="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/chefstablect/">
+                        <i className="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
         );
