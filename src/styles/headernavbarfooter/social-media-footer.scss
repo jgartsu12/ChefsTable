@@ -8,6 +8,10 @@
     height: 60px;
     width: 100%;
     background-color: black;
+
+    @media screen and (max-width: 600px) {
+        bottom: -5000px;
+    }
     
     // @include respond-to(handhelds) { width: 100% ;}
     // @include respond-to(medium-screens) { width: 125px; }
@@ -25,6 +29,8 @@
             height: 54px;
             width: 50px;
         }
+
+        
     }
     // centered at bottom 
 }
