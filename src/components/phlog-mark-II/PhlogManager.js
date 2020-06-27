@@ -12,11 +12,11 @@ const PhlogManager = () => {
   useEffect(() => {
     axios.get('http://localhost:5000/api/v1/images')
       .then(res => {
-        console.log(res)
+        // console.log(res)
         setPhlogs(res.data)
       })
       .catch(err => {
-        console.log(err, 'useEffect Hook error')
+        console.log(err, 'useEffect Hook  Phlog Manager error')
       })
   }, [])
 
@@ -24,15 +24,15 @@ const PhlogManager = () => {
         
     const imageFormData = new FormData()
     imageFormData.append('file', image)
-    imageFormData.append('upload_preset', 'phlog-list')
+    imageFormData.append('upload_preset', 'jfw9oukn')
     
     try {
         const cloudinary = await axios(
             {
                 method: "post",
-                url: 'https://api.cloudinary.com/v1_1/jfw9oukn/image/upload',
+                url: 'https://api.cloudinary.com/v1_1/chefstable/image/upload',
                 data: imageFormData,
-                headers: { 'Content-Type': 'multipart/form-data' },
+                headers: { 'Content-Type': 'multipart/form-data' }
             }
         )
         console.log(cloudinary);
