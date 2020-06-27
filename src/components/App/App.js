@@ -102,7 +102,7 @@ export default class App extends Component {
         return [
           <Route
             key="phlog-manager"
-            path="/phlog-manager/"
+            path="/phlog-manager"
             component={PhlogManager}
           />
         ];

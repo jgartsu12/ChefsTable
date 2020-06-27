@@ -1,19 +1,37 @@
 .phlog {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
+    margin-top: 75px;
     // @include respond-to(handhelds) { width: 100% ;}
     // @include respond-to(medium-screens) { width: 125px; }
     // @include respond-to(wide-screens) { float: none; }
+
+    @media screen and (max-width: 600px) {
+        margin: 48px;
+        padding: 17px;
+        grid-template-columns: 1fr;
+    }
 
     .phlog-items {
         // display: grid;
         // grid-template-columns: 1fr 1fr 1fr;
         // padding-top: 110px;
 
+        @media screen and (max-width: 600px) {
+            margin-top: 75px;
+        }
+
         .phlog-items__display-to-site-unAuth-user {  
-            position: relative;
-            margin-top: 100px;
+            // position: relative;
+            // margin-top: 100px;
+            margin: 48px;
+            padding: 17px;
+
+            @media screen and (max-width: 600px) {
+                margin: 15px;
+                padding: 17px;
+                grid-template-columns: 1fr;
+            }
 
             img {
                 width: 100%;

@@ -29,7 +29,7 @@ const NavContainer = props => {
                 </div>
             
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/about-us/' activeClassName='nav-link-active'>
+                    <NavLink exact to='/about-us' activeClassName='nav-link-active'>
                         <div className='navbar-links-btn-txt'>
                             ABOUT US
                         </div>
@@ -37,7 +37,7 @@ const NavContainer = props => {
                 </div>
 
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/soups/' activeClassName='nav-link-active'>
+                    <NavLink exact to='/soups' activeClassName='nav-link-active'>
                         <div className='navbar-links-btn-txt'>
                             SOUPS
                         </div>
@@ -45,7 +45,7 @@ const NavContainer = props => {
                 </div>
 
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/breakfast-menu/' activeClassName='nav-link-active'>
+                    <NavLink exact to='/breakfast-menu' activeClassName='nav-link-active'>
                         <div className='navbar-links-btn-txt'>
                             BREAKFAST
                         </div>
@@ -53,7 +53,7 @@ const NavContainer = props => {
                 </div>
 
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/lunch-menu/' activeClassName='nav-link-active'>
+                    <NavLink exact to='/lunch-menu' activeClassName='nav-link-active'>
                         <div className='navbar-links-btn-txt'>
                             LUNCH
                         </div>
@@ -61,7 +61,7 @@ const NavContainer = props => {
                 </div> 
 
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/phlog/' activeClassName='nav-link-active'>
+                    <NavLink exact to='/phlog' activeClassName='nav-link-active'>
                         <div className='navbar-links-btn-txt'>
                             Photo Blog
                         </div>
@@ -70,7 +70,7 @@ const NavContainer = props => {
            
                 {
                     props.loggedIn ? (
-                        dynamicLink('/phlog-manager/', 'Phlog Manager')
+                        dynamicLink('/phlog-manager', 'Phlog Manager')
                     ) : null
                 }
                 

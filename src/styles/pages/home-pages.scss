@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: calc(100vh - 84px);
+    margin-top: 60px;
 
     // @include respond-to(handhelds) { width: 100% ;}
     // @include respond-to(medium-screens) { width: 125px; }
@@ -32,7 +33,7 @@
             @media screen and (max-width: 600px) {
                 // grid-template-columns: 1fr;
                 height: 170px;
-                left: 0px;
+                left: 5px;
             }
             // @media screen and (max-width: 600px) {
             //     grid-template-columns: 1fr;
@@ -53,7 +54,7 @@
 
         @media screen and (max-width: 600px) {
             height: 100px;
-            right: 370px;
+            right: 369px;
             padding-top: 201px;
             position: relative;
         }

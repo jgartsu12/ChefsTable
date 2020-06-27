@@ -3,6 +3,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: calc(100vh - 84px);
+    margin-top: 60px;
+
 
     .left-column {
         display: flex;
