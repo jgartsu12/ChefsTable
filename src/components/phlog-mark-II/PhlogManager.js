@@ -39,7 +39,7 @@ const PhlogManager = () => {
         const flask_database = await axios(
             {
                 method: "post",
-                url: 'http://phlog-api.herokuapp.com/api/v1/image',
+                url: 'https://phlog-api.herokuapp.com/api/v1/image',
                 data: {
                     title: title,
                     // genre: genre,
@@ -61,7 +61,7 @@ const PhlogManager = () => {
   }
 
   const deletePhlog = (id) => {
-    axios.delete(`http://phlog-api.herokuapp.com/api/v1/image/${id}`)
+    axios.delete(`https://phlog-api.herokuapp.com/api/v1/image/${id}`)
       .then(res => {
         console.log(res)
         setPhlogs(phlogs.filter(phlog => phlog.id !== id))
