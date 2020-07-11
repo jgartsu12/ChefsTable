@@ -38,7 +38,7 @@ export default class PhlogManager extends Component {
     handleDeleteClick(id) {
         axios
             .delete(
-                `http://localhost:5000/api/v1/image/${id}`,
+                `http://phlog-api.herokuapp.com/api/v1/image/${id}`,
                 { withCredentials: true }
             )
             .then(response => {
@@ -71,7 +71,7 @@ export default class PhlogManager extends Component {
 
     getPhlogItems() {
         axios
-          .get('http://localhost:5000/api/v1/images',
+          .get('http://phlog-api.herokuapp.com/api/v1/images',
             // {
             //    withCredentials: true 
             // }

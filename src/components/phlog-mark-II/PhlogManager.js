@@ -10,7 +10,7 @@ const PhlogManager = () => {
 
 //   hooks
   useEffect(() => {
-    axios.get('http://localhost:5000/api/v1/images')
+    axios.get('http://localhost:/api/v1/images')
       .then(res => {
         // console.log(res)
         setPhlogs(res.data)
@@ -39,7 +39,7 @@ const PhlogManager = () => {
         const flask_database = await axios(
             {
                 method: "post",
-                url: 'http://localhost:5000/api/v1/image',
+                url: 'http://phlog-api.herokuapp.com/api/v1/image',
                 data: {
                     title: title,
                     // genre: genre,
@@ -61,7 +61,7 @@ const PhlogManager = () => {
   }
 
   const deletePhlog = (id) => {
-    axios.delete(`http://localhost:5000/api/v1/image/${id}`)
+    axios.delete(`http://phlog-api.herokuapp.com/api/v1/image/${id}`)
       .then(res => {
         console.log(res)
         setPhlogs(phlogs.filter(phlog => phlog.id !== id))
