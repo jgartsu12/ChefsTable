@@ -12,7 +12,7 @@ export default class SoupDetail extends Component {
     componentDidMount() {
         const soupID = this.props.match.params.soupID;
         axios
-            .get(`http://127.0.0.1:8000/api/${soupID}`)
+            .get(`http://jgartsu12.pythonanywhere.com/api/${soupID}`)
             .then(res => {
                 this.setState({
                     menuItem: res.data

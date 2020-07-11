@@ -10,7 +10,7 @@ class MenuList extends Component {
 
     fetchMenuItems = () => {
         axios 
-            .get('http://127.0.0.1:8000/api/')
+            .get('http://jgartsu12.pythonanywhere.com/api/')
             .then(res => {
                 this.setState({
                     menuItems: res.data

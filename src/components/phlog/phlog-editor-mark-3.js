@@ -77,14 +77,14 @@ export default class PhlogEditor extends Component {
 //         };
 
 //         if (request === 'post') {
-//             await axios.post('http://127.0.0.1:8000/phlogapi/phlog/create/', phlogPostData)
+//             await axios.post('http://jgartsu12.pythonanywhere.com/phlogapi/phlog/create/', phlogPostData)
 //                 .then(res => {
 //                     if (res.status === 201) {
 //                         this.props.history.push('/');
 //                     }
 //                 })
 //         } else if (request === 'put') {
-//             await axios.put(`http://127.0.0.1:8000/phlogapi/phlog/${phlogID}/update/`, phlogPostData)
+//             await axios.put(`http://jgartsu12.pythonanywhere.com/phlogapi/phlog/${phlogID}/update/`, phlogPostData)
 //                 .then(res => { 
 //                     if (res.status === 200) {
 //                         this.props.history.push('/');
