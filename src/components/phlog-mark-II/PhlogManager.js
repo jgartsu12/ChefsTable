@@ -10,7 +10,7 @@ const PhlogManager = () => {
 
 //   hooks
   useEffect(() => {
-    axios.get('https://localhost:/api/v1/images')
+    axios.get('https://phlog-api.herokuapp.com/api/v1/images')
       .then(res => {
         // console.log(res)
         setPhlogs(res.data)
