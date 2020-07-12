@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export function fetchSoups() {
     return function(dispatch) {
-        axios.get('http://jgartsu12.pythonanywhere.com/api/soups')
+        axios.get('https://jgartsu12.pythonanywhere.com/api/soups')
             .then(response => {
                 console.log(response.data.soups);
                 dispatch({

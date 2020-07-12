@@ -35,7 +35,7 @@ class PhlogEditor extends Component {
         event.preventDefault();
         axios
             .delete(
-                `http://jgartsu12.pythonanywhere.com/phlogapi/phlog/${this.state.id}/delete/`,
+                `https://jgartsu12.pythonanywhere.com/phlogapi/phlog/${this.state.id}/delete/`,
                 { withCredentials: true }
             )
             .then(response => {
@@ -63,7 +63,7 @@ class PhlogEditor extends Component {
                 phlog_status: phlog_status || '',
                 position: position || '',
                 editMode: true,
-                apiUrl: `http://jgartsu12.pythonanywhere.com/phlogapi/`,
+                apiUrl: `https://jgartsu12.pythonanywhere.com/phlogapi/`,
                 apiAction: 'patch'
             });
             

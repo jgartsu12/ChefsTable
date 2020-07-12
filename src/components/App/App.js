@@ -25,7 +25,7 @@ export default class App extends Component {
 
     componentDidMount() {
         if (this.state.loggedIn) {
-            fetch('http://jgartsu12.pythonanywhere.com/login/user_now/', {
+            fetch('https://jgartsu12.pythonanywhere.com/login/user_now/', {
                 headers: {
                     Authorization : `JWT ${localStorage.getItem('token')}`
                 }
@@ -42,7 +42,7 @@ export default class App extends Component {
 
     handleLogin = (event, data) => {
         event.preventDefault();
-        fetch('http://jgartsu12.pythonanywhere.com/token-auth/', {
+        fetch('https://jgartsu12.pythonanywhere.com/token-auth/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ export default class App extends Component {
 
     handleSignup = (event, data) => {
         event.preventDefault();
-        fetch('http://jgartsu12.pythonanywhere.com/login/users/', {
+        fetch('https://jgartsu12.pythonanywhere.com/login/users/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

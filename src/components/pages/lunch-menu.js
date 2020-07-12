@@ -19,7 +19,7 @@ export default class LunchMenu extends Component {
 
     getLunches() {
         axios
-            .get('http://jgartsu12.pythonanywhere.com/api/lunch/')
+            .get('https://jgartsu12.pythonanywhere.com/api/lunch/')
             .then(response => {
                 this.setState({
                     lunch: response.data

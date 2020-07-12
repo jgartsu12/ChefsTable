@@ -20,7 +20,7 @@ export default class Soup extends Component {
 
     getSoups() {
         axios
-            .get('http://jgartsu12.pythonanywhere.com/api/soups/')
+            .get('https://jgartsu12.pythonanywhere.com/api/soups/')
             .then(response => {
                 this.setState({
                     soups: response.data

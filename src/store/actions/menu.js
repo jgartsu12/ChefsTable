@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export function fetchMenuItems() {
     return function(dispatch) {
-        axios.get('http://jgartsu12.pythonanywhere.com/api/')
+        axios.get('https://jgartsu12.pythonanywhere.com/api/')
             .then(response => {
                 console.log(response.data);
                 dispatch({

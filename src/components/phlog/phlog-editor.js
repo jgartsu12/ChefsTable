@@ -15,7 +15,7 @@ class PhlogEditor extends Component {
             phlog_image: '',
             editMode: false,
             position: '',
-            apiUrl: 'http://jgartsu12.pythonanywhere.com/phlogapi/phlog/',
+            apiUrl: 'https://jgartsu12.pythonanywhere.com/phlogapi/phlog/',
             apiAction: 'post'
         };
         
@@ -33,7 +33,7 @@ class PhlogEditor extends Component {
         event.preventDefault();
         axios
             .delete(
-                `http://jgartsu12.pythonanywhere.com/phlogapi/phlog/${this.props.id}/delete`,
+                `https://jgartsu12.pythonanywhere.com/phlogapi/phlog/${this.props.id}/delete`,
                 { withCredentials: true }
             )
             .then(response => {
@@ -62,7 +62,7 @@ class PhlogEditor extends Component {
                 phlog_status: phlog_status || '',
                 position: position || '',
                 editMode: true,
-                apiUrl: `http://jgartsu12.pythonanywhere.com/phlogapi/phlog/${this.props.id}/update`,
+                apiUrl: `https://jgartsu12.pythonanywhere.com/phlogapi/phlog/${this.props.id}/update`,
                 apiAction: 'patch'
             });
         } 

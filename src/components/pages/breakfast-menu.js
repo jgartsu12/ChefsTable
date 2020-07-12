@@ -19,7 +19,7 @@ export default class BreakfastMenu extends Component {
 
     getBreakfastFood() {
         axios
-            .get('http://jgartsu12.pythonanywhere.com/api/breakfast/')
+            .get('https://jgartsu12.pythonanywhere.com/api/breakfast/')
             .then(response => {
                 this.setState({
                     breakfast: response.data

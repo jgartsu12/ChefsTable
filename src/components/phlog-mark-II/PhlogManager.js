@@ -10,7 +10,7 @@ const PhlogManager = () => {
 
 //   hooks
   useEffect(() => {
-    axios.get('http://localhost:/api/v1/images')
+    axios.get('https://localhost:/api/v1/images')
       .then(res => {
         // console.log(res)
         setPhlogs(res.data)
