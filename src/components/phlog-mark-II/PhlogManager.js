@@ -44,8 +44,8 @@ const PhlogManager = () => {
                     title: title,
                     // genre: genre,
                     // Either http or https
-                    image_url: cloudinary.data.url,
-                    // image_url: cloudinary.data.secure_url,
+                    // image_url: cloudinary.data.url,
+                    image_url: cloudinary.data.secure_url,
                     public_id: cloudinary.data.public_id
                 },
                 headers: {
