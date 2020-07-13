@@ -19,7 +19,7 @@ export default class Phlog extends Component {
 
     getPhlogItem() {
         axios
-            .get('https://phlog-api.herokuapp.com/api/v1/images')
+            .get('https://www.john-gartsu-flask-api.com/api/v1/images')
             .then(response => {
                 this.setState({
                     phlogItem: response.data

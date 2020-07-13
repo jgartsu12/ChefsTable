@@ -30,7 +30,7 @@ const PhlogManager = () => {
         const cloudinary = await axios(
             {
                 method: "post",
-                url: 'https://api.cloudinary.com/v1_1/chefstable/image/upload',
+                url: 'https://www.john-gartsu-flask-api.com/v1_1/chefstable/image/upload',
                 data: imageFormData,
                 headers: { 'Content-Type': 'multipart/form-data' }
             }
@@ -39,7 +39,7 @@ const PhlogManager = () => {
         const flask_database = await axios(
             {
                 method: "post",
-                url: 'https://phlog-api.herokuapp.com/api/v1/image',
+                url: 'https://www.john-gartsu-flask-api.com/api/v1/image',
                 data: {
                     title: title,
                     // genre: genre,
@@ -61,7 +61,7 @@ const PhlogManager = () => {
   }
 
   const deletePhlog = (id) => {
-    axios.delete(`https://phlog-api.herokuapp.com/api/v1/image/${id}`)
+    axios.delete(`https://www.john-gartsu-flask-api.com/api/v1/image/${id}`)
       .then(res => {
         console.log(res)
         setPhlogs(phlogs.filter(phlog => phlog.id !== id))
