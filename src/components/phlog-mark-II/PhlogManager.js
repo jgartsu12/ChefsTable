@@ -30,7 +30,7 @@ const PhlogManager = () => {
         const cloudinary = await axios(
             {
                 method: "post",
-                url: 'https://www.john-gartsu-flask-api.com/v1_1/chefstable/image/upload',
+                url: 'https://www.john-gartsu-flask-api.com/api/v1/image/upload',
                 data: imageFormData,
                 headers: { 'Content-Type': 'multipart/form-data' }
             }
