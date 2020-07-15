@@ -10,7 +10,7 @@ app.use((req, res, next) => {
 
 app.get('/api/v1/images', (req, res) => {
   request(
-    { url: 'https://phlog-api.herokuapp.com/api/v1/images' },
+    { url: 'https://www.john-gartsu-flask-api.com/api/v1/images' },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
         return res.status(500).json({ type: 'error', message: err.message });

@@ -10,13 +10,13 @@ const PhlogManager = () => {
 
 //   hooks
   useEffect(() => {
-    axios.get('https://phlog-api.herokuapp.com/api/v1/images')
+    axios.get('https://www.john-gartsu-flask-api.com/api/v1/images')
       .then(res => {
         // console.log(res)
         setPhlogs(res.data)
       })
       .catch(err => {
-        console.log(err, 'useEffect Hook  Phlog Manager error')
+        console.log(err, 'useEffect Hook Phlog Manager error')
       })
   }, [])
 
