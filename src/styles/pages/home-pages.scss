@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: calc(100vh - 84px);
-    margin-top: 60px;
+    margin-top: 160px;
 
     // @include respond-to(handhelds) { width: 100% ;}
     // @include respond-to(medium-screens) { width: 125px; }
@@ -28,7 +28,7 @@
             position: relative;
             // width: 1000px;
             top: 500px;
-            left: 145px;
+            left:206px;
 
             @media screen and (max-width: 600px) {
                 // grid-template-columns: 1fr;
